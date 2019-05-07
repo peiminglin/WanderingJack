@@ -10,16 +10,23 @@ public class GravitySource : MonoBehaviour {
         get { return power; } 
         set { power = value; }
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
+    //Transform planet;
+    float planetRadius;
+    CircleCollider2D col;
+    float radius;
+    public float Radius {
+        get { return radius; }
+        set { radius = value; }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void Awake() {
+        //planet = GetComponentInParent<Transform>();
+        col = transform.parent.GetComponent<CircleCollider2D>();
+        planetRadius = col.bounds.extents.x * col.transform.localScale.magnitude;
+    }
+
+    private void Update() {
+        radius = planetRadius;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -30,9 +37,20 @@ public class GravitySource : MonoBehaviour {
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        GravityObject source = collision.gameObject.GetComponent<GravityObject>();
-        if (source.GetGravitySource().Equals(this)){
-            source.ResetGravity();
+        if (collision.tag.Equals("Player")) {
+            GravityObject go = collision.gameObject.GetComponent<GravityObject>();
+            if (go.GetGravitySource().Equals(this)) {
+                go.ResetGravity();
+            }
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision) {
+        //if (collision.tag.Equals("Player")) {
+        //    GravityObject go = collision.gameObject.GetComponent<GravityObject>();
+        //    if (go.GetGravitySource() == null) {
+        //        go.UseGravity(this);
+        //    }
+        //}
     }
 }

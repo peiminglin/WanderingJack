@@ -8,7 +8,7 @@ public class GalaxyManager : MonoBehaviour
 
     void Start()
     {
-        Galaxy = GetComponent<GravitySource>();
+        //Galaxy = GetComponent<GravitySource>();
     }
 
     void Update()

@@ -5,18 +5,15 @@ using UnityEngine;
 public class RotatingPlanet : MonoBehaviour
 {
     [SerializeField]
-    bool isClock = true;
-
+    bool clockwise = true;
+    [SerializeField]
     float speed = 0.5f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void Update()
     {
-        transform.RotateAround(Vector3.forward, speed * Time.deltaTime);
+        //transform.RotateAround(Vector3.forward, speed * Time.deltaTime);
+        int dir = clockwise ? -1 : 1;
+        transform.Rotate(Vector3.forward, speed * dir * Time.deltaTime);
     }
 }

@@ -17,7 +17,9 @@ public class CameraFollow : MonoBehaviour
     void Update()
     {
         GravitySource source = gravityObject.GetGravitySource();
-        Vector3 target = new Vector3(source.transform.position.x, source.transform.position.y, transform.position.z);
+        Vector3 target = source != null
+            ? new Vector3(source.transform.position.x, source.transform.position.y, transform.position.z)
+            : new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
         transform.position = Vector3.Lerp(transform.position, target, 0.3f);
     }
 }

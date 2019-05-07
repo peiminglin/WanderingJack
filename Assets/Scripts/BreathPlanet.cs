@@ -8,16 +8,17 @@ public class BreathPlanet : MonoBehaviour
     float minScale = 1f;
     [SerializeField]
     float maxScale = 1.5f;
+    [SerializeField]
+    float speed = 0.1f;
 
     float currentScale;
-    float speed = 0.3f;
 
     int trigger = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentScale = transform.localScale.x;
+        currentScale = transform.localScale.magnitude;
     }
 
     // Update is called once per frame

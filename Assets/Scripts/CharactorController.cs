@@ -5,8 +5,7 @@ using UnityEngine;
 public class CharactorController : MonoBehaviour
 {
     [SerializeField]
-    float speed = 1f;
-    float maxSpeed = 2f;
+    float speed = 50f;
     [SerializeField]
     float jumpingPower = 5f;
     float movingDir;
@@ -14,6 +13,7 @@ public class CharactorController : MonoBehaviour
     bool isLanded;
     public bool IsLanded{ get { return isLanded; } set { isLanded = value; }}
     GravityObject gravityObject;
+    Vector3 currentOffset;
 
     void Awake()
     {
@@ -25,12 +25,20 @@ public class CharactorController : MonoBehaviour
     void Update()
     {
         movingDir = Input.GetAxisRaw("Horizontal");
-        if (Input.GetButtonDown("Jump") && isLanded){
-            myRig.AddForce(transform.up * jumpingPower, ForceMode2D.Impulse);
+        if (isLanded) {
+            //gravityObject.SetCurrentOffset();
+
+            if (Input.GetButtonDown("Jump")) {
+                myRig.AddForce(transform.up * jumpingPower, ForceMode2D.Impulse);
+                isLanded = false;
+            }
         }
 
-        if (isLanded && Mathf.Abs(movingDir) > float.Epsilon && !gravityObject.IsFloating)
-            gravityObject.Orbit(movingDir, speed * Time.deltaTime);
+        if (Mathf.Abs(movingDir) > float.Epsilon){
+            if (!gravityObject.IsFloating){
+                gravityObject.Orbit(movingDir, speed * Time.deltaTime);
+            }
+        }
 
     }
 
@@ -43,11 +51,18 @@ public class CharactorController : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        myRig.velocity = Vector2.zero;
-        isLanded = true;
+        switch(collision.gameObject.tag){
+            case "Planet":
+                myRig.velocity = Vector2.zero;
+                isLanded = true;
+                break;
+            case "Stone":
+                break;
+        }
+        //gravityObject.GetCurrentOffset();
     }
 
     private void OnCollisionExit2D(Collision2D collision) {
-        isLanded = false;
+    //    isLanded = false;
     }
 }

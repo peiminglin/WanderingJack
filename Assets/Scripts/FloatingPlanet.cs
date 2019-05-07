@@ -6,16 +6,18 @@ public class FloatingPlanet : MonoBehaviour
 {
     [SerializeField]
     Vector3[] points;
+    [SerializeField]
+    float speed = 0.1f;
 
     int nextId;
     int currentId;
     float dist;
-    float speed = 0.5f;
 
     // Start is called before the first frame update
     void Start()
     {
         currentId = 0;
+        points[0] = transform.position;
     }
 
     // Update is called once per frame
