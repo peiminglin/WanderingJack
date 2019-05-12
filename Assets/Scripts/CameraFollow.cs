@@ -12,22 +12,16 @@ public class CameraFollow : MonoBehaviour
     Vector3 camTarget => camPosition + camOffset;
 
     public float defaultSize;
-    //readonly float currentDepth;
     readonly float panRadius = 5f;
 
 
     // Start is called before the first frame update
     void Start(){
-        //gravityObject = player.GetComponent<GravityObject>();
         defaultSize = Camera.main.orthographicSize;
     }
 
     // Update is called once per frame
     void Update(){
-        //GravitySource source = gravityObject.GetGravitySource();
-        //Vector3 target = source != null
-        //? new Vector3(source.transform.position.x, source.transform.position.y, transform.position.z)
-        //: new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
         CamControl();
         Follow();
         transform.position = Vector3.Lerp(transform.position, camTarget, 0.3f);
