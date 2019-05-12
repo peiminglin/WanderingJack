@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         myRig = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -23,8 +24,10 @@ public class Player : MonoBehaviour
         
     }
 
-    public void Hurt(int damage = 1){
+    public void Hurt(GameObject source, int damage = 1){
         health -= damage;
+        myRig.AddForce((transform.position - source.transform.position).normalized * 500f, ForceMode2D.Impulse);
+        animator.SetTrigger("GetHurt");
         animator.SetInteger("Health", health);
     }
 }

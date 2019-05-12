@@ -46,11 +46,11 @@ public class GravitySource : MonoBehaviour {
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
-        //if (collision.tag.Equals("Player")) {
-        //    GravityObject go = collision.gameObject.GetComponent<GravityObject>();
-        //    if (go.GetGravitySource() == null) {
-        //        go.UseGravity(this);
-        //    }
-        //}
+        if (collision.tag.Equals("Player")) {
+            GravityObject go = collision.gameObject.GetComponent<GravityObject>();
+            if (go.GetGravitySource() == null) {
+                go.UseGravity(this);
+            }
+        }
     }
 }

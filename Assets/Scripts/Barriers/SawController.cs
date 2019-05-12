@@ -10,7 +10,8 @@ public class SawController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.transform.tag == "Player"){
-            collision.gameObject.GetComponent<Player>().Hurt();
+            Player player = collision.gameObject.GetComponent<Player>();
+            player.Hurt(gameObject);
         }
     }
 }
