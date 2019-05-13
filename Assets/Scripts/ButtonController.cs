@@ -18,6 +18,10 @@ public class ButtonController : MonoBehaviour
     public void StartGame() {
         SceneManager.LoadScene(1);
     }
+    public void BacktoMenu() {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
+    }
 
     public void QuitGame() {
         Application.Quit();
@@ -56,7 +60,7 @@ public class ButtonController : MonoBehaviour
 
     }
 
-    public void BacktoMenu() {
+    public void BacktoStart() {
         startLerping = Time.time;
         shouldLerp = 0;
 

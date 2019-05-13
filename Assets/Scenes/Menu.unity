@@ -348,7 +348,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1363728259}
-        m_MethodName: BacktoMenu
+        m_MethodName: BacktoStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -744,6 +744,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: bba6cef430bb87b43a060f04f6aa1791, type: 2}
+    - target: {fileID: 570078448916106356, guid: bfec675c1d40d43c7a146f5dd94cfb47,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfec675c1d40d43c7a146f5dd94cfb47, type: 3}
 --- !u!1 &807610027
@@ -2084,6 +2089,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: e744f9a395b06b041a2782ccaaa787e5, type: 2}
+    - target: {fileID: 4087027354160742767, guid: 563996bef918d4581b92318b30d32096,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 563996bef918d4581b92318b30d32096, type: 3}
 --- !u!1 &1988292210
