@@ -30,12 +30,13 @@ public class Player : MonoBehaviour
         if (isFloating){
             if (isFloating != go.IsFloating){
                 isFloating = false;
+            }else{
+                floatingTime += Time.deltaTime;
+                if (floatingTime > maxFloatingTime) {
+                    Hurt(null, health);
+                }
             }
-            floatingTime += Time.deltaTime;
-            if (floatingTime > maxFloatingTime){
-                Hurt(null, health);
-            }
-        }else{
+        } else{
             if (isFloating != go.IsFloating){
                 isFloating = true;
                 floatingTime = 0;
@@ -65,7 +66,7 @@ public class Player : MonoBehaviour
         switch (objectTag){
             case "Stone":
                 Rigidbody2D stone = collision.gameObject.GetComponent<Rigidbody2D>();
-                if (stone.velocity.magnitude > 3f){
+                if (stone.velocity.magnitude > 5f){
                     Hurt(stone.gameObject);
                 }
                 break;
