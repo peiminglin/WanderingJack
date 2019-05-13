@@ -31,7 +31,7 @@ public class ButtonController : MonoBehaviour
     {
         if (shouldLerp == 1)
         {
-            lerpTime = 1.0f;
+            lerpTime = 0.5f;
 
             float time = Time.time - startLerping;
 
@@ -43,7 +43,7 @@ public class ButtonController : MonoBehaviour
         }
         else if(shouldLerp ==0)
         {
-            lerpTime = 1.0f;
+            lerpTime = 0.5f;
 
             float time = Time.time - startLerping;
 

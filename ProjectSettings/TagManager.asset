@@ -9,6 +9,7 @@ TagManager:
   - Saw
   - AttractSource
   - Bullet
+  - Btn
   layers:
   - Default
   - TransparentFX
