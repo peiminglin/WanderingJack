@@ -60,7 +60,7 @@ public class CharactorController : MonoBehaviour
                 myRig.velocity = Vector2.zero;
                 isLanded = true;
                 break;
-            case "Stone":
+            default:
                 break;
         }
         //gravityObject.GetCurrentOffset();

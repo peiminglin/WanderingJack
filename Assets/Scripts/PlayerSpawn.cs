@@ -22,11 +22,13 @@ public class PlayerSpawn : MonoBehaviour
         scale += state == 0 ? Time.deltaTime : -Time.deltaTime;
         if (scale > 1 && state == 0){
             state = 1;
+            //GameManager.player = Instantiate(playerPrefab, transform.position, Quaternion.identity).GetComponent<Player>();
+            //cam.SetTarget(GameManager.player.gameObject);
             GameObject go = Instantiate(playerPrefab, transform.position, Quaternion.identity);
-            GameManager.player = go.GetComponent<Player>();
+            go.transform.parent = this.transform.parent;
             cam.SetTarget(go);
         } else if (scale < 0){
-            Destroy(this);
+            Destroy(this.gameObject);
         }
 
         transform.Rotate(new Vector3(0, 0, 3f));

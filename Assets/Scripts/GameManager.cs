@@ -6,15 +6,27 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     GameObject[] levelPrefabs;
+    GameObject currentLevelObject;
     int currentLevel = 0;
-    public static Player player;
+    //public static Player player;
 
     void Start(){
-        if (levelPrefabs.Length > currentLevel)
-            Instantiate(levelPrefabs[currentLevel], Vector3.zero, Quaternion.identity);
+        Restart();
+    }
+
+    public void StartLevel(int level){
+        if (levelPrefabs.Length > level)
+            currentLevelObject = Instantiate(levelPrefabs[level], Vector3.zero, Quaternion.identity);
+    }
+
+    public void Restart(){
+        StartLevel(currentLevel);
     }
 
     void Update(){
-        
+        if (Input.GetKeyDown(KeyCode.R)){
+            Destroy(currentLevelObject);
+            Restart();
+        }
     }
 }
