@@ -12,9 +12,9 @@ public class MeteoroliteController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.localScale = Vector3.one * Random.Range(0.5f, 2f);
+        transform.localScale = Vector3.one * Random.Range(0.5f, 1.5f);
         myRig = GetComponent<Rigidbody2D>();
-        //myRig.AddForce(Random.insideUnitCircle, ForceMode2D.Impulse);
+        myRig.AddForce(Random.insideUnitCircle, ForceMode2D.Impulse);
         timer = -1f;
     }
 

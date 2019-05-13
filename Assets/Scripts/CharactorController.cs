@@ -10,6 +10,7 @@ public class CharactorController : MonoBehaviour
     float jumpingPower = 5f;
     float movingDir;
     Rigidbody2D myRig;
+    Animator animator;
     bool isLanded;
     public bool IsLanded{ get { return isLanded; } set { isLanded = value; }}
     GravityObject gravityObject;
@@ -18,6 +19,7 @@ public class CharactorController : MonoBehaviour
     void Awake()
     {
         myRig = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         gravityObject = GetComponent<GravityObject>();
     }
 
@@ -40,6 +42,8 @@ public class CharactorController : MonoBehaviour
             }
         }
 
+        animator.SetBool("IsGrounded", isLanded);
+        animator.SetBool("IsWalking", System.Math.Abs(movingDir) > float.Epsilon);
     }
 
     private void FixedUpdate() {
@@ -56,7 +60,7 @@ public class CharactorController : MonoBehaviour
                 myRig.velocity = Vector2.zero;
                 isLanded = true;
                 break;
-            case "Stone":
+            default:
                 break;
         }
         //gravityObject.GetCurrentOffset();

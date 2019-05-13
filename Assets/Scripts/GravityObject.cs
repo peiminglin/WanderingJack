@@ -67,9 +67,11 @@ public class GravityObject : MonoBehaviour {
     //}
 
     public void UseGravity(GravitySource source){
-        gravitySource = source;
-        Float();
-        isFloating = false;
+        if (source != null){
+            gravitySource = source;
+            //Float();
+            isFloating = false;
+        }
     }
 
     public void ResetGravity(){
@@ -87,8 +89,8 @@ public class GravityObject : MonoBehaviour {
         return gravitySource;
     }
 
-    public void Orbit(float dir, float speed){
-        transform.RotateAround(gravitySource.transform.position, -Vector3.forward, dir * speed);
+    public void Orbit(float movement, float speed){
+        transform.RotateAround(gravitySource.transform.position, -Vector3.forward, movement * speed);
         //GetCurrentOffset();
     }
 

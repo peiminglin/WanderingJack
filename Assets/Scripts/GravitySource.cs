@@ -30,16 +30,17 @@ public class GravitySource : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.tag.Equals("Player")){
-            if (!collision.gameObject.GetComponent<CharactorController>().IsLanded)
-                collision.gameObject.GetComponent<GravityObject>().UseGravity(this);
+        GravityObject go = collision.gameObject.GetComponent<GravityObject>();
+        if (go != null) {
+            //if (!collision.gameObject.GetComponent<CharactorController>().IsLanded)
+                go.UseGravity(this);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.tag.Equals("Player")) {
-            GravityObject go = collision.gameObject.GetComponent<GravityObject>();
-            if (go.GetGravitySource().Equals(this)) {
+        GravityObject go = collision.gameObject.GetComponent<GravityObject>();
+        if (go != null) {
+            if (this.Equals(go.GetGravitySource())) {
                 go.ResetGravity();
             }
         }
@@ -47,10 +48,12 @@ public class GravitySource : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision) {
         //if (collision.tag.Equals("Player")) {
-        //    GravityObject go = collision.gameObject.GetComponent<GravityObject>();
-        //    if (go.GetGravitySource() == null) {
-        //        go.UseGravity(this);
-        //    }
-        //}
+        //GravityObject go = collision.gameObject.GetComponent<GravityObject>();
+        GravityObject go = collision.gameObject.GetComponent<GravityObject>();
+        if (go != null) {
+            if (go.GetGravitySource() == null) {
+                go.UseGravity(this);
+            }
+        }
     }
 }

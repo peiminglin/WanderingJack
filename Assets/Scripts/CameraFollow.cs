@@ -4,22 +4,58 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public GameObject player;
-    GravityObject gravityObject;
+    //public GameObject player;
+    //GravityObject gravityObject;
+    GameObject target;
+    Vector3 camPosition = -Vector3.forward;
+    Vector3 camOffset = Vector3.zero;
+    Vector3 camTarget => camPosition + camOffset;
+
+    public float defaultSize;
+    readonly float panRadius = 5f;
+
 
     // Start is called before the first frame update
-    void Start()
-    {
-        gravityObject = player.GetComponent<GravityObject>();
+    void Start(){
+        defaultSize = Camera.main.orthographicSize;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        GravitySource source = gravityObject.GetGravitySource();
-        Vector3 target = source != null
-            ? new Vector3(source.transform.position.x, source.transform.position.y, transform.position.z)
-            : new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
-        transform.position = Vector3.Lerp(transform.position, target, 0.3f);
+    void Update(){
+        CamControl();
+        Follow();
+        transform.position = Vector3.Lerp(transform.position, camTarget, 0.3f);
+    }
+
+    void CamControl(){
+        if (Input.GetKey(KeyCode.LeftShift)){
+            float panx = Input.GetAxis("Horizontal");
+            float pany = Input.GetAxis("Vertical");
+            Pan(new Vector3(panx, pany, camPosition.z));
+        }else if (Input.GetKeyDown(KeyCode.LeftControl)){
+            Zoom(2f);
+        }else if (Input.GetKeyUp(KeyCode.LeftControl)){
+            Zoom();
+        }
+    }
+
+    void Follow(){
+        camPosition = new Vector3(target.transform.position.x, target.transform.position.y, camPosition.z);
+    }
+
+    public void SetTarget(GameObject target){
+        this.target = target;
+    }
+
+    //public void MoveTo(Vector3 target){
+    //    camPosition = target;
+    //}
+
+    public void Zoom(float size = 1f){
+        Camera.main.orthographicSize = defaultSize * size;
+    }
+
+    public void Pan(Vector3 direction){
+        camOffset = direction.normalized * panRadius;
     }
 }
