@@ -1,6 +1,7 @@
 fileFormatVersion: 2
 guid: 03bf0a0acc5a04a38b9114b2358e94fe
 TextureImporter:
+<<<<<<< HEAD
   internalIDToNameTable:
   - first:
       213: 21300000
@@ -10,6 +11,13 @@ TextureImporter:
     second: jackidle_1
   externalObjects: {}
   serializedVersion: 10
+=======
+  fileIDToRecycleName:
+    21300000: jackidle_0
+    21300002: jackidle_1
+  externalObjects: {}
+  serializedVersion: 9
+>>>>>>> fca122fdb2c805c615a089ff9288c4afadd38895
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -51,7 +59,11 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
   spritePixelsToUnits: 900
+=======
+  spritePixelsToUnits: 100
+>>>>>>> fca122fdb2c805c615a089ff9288c4afadd38895
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -149,7 +161,10 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: bfc7b52f907d44559a3b975b774233b9
+<<<<<<< HEAD
       internalID: 21300000
+=======
+>>>>>>> fca122fdb2c805c615a089ff9288c4afadd38895
       vertices: []
       indices: 
       edges: []
@@ -170,7 +185,10 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 13ab8411c740b4a6792ac0bee52a28ba
+<<<<<<< HEAD
       internalID: 21300002
+=======
+>>>>>>> fca122fdb2c805c615a089ff9288c4afadd38895
       vertices: []
       indices: 
       edges: []
@@ -179,12 +197,18 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: fa74b9024e7f04d4e9dca88ce8d37f1a
+<<<<<<< HEAD
     internalID: 0
+=======
+>>>>>>> fca122fdb2c805c615a089ff9288c4afadd38895
     vertices: []
     indices: 
     edges: []
     weights: []
+<<<<<<< HEAD
     secondaryTextures: []
+=======
+>>>>>>> fca122fdb2c805c615a089ff9288c4afadd38895
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
