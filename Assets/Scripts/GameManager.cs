@@ -15,8 +15,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void StartLevel(int level){
-        if (levelPrefabs.Length > level)
+        if (levelPrefabs.Length > level){
             currentLevelObject = Instantiate(levelPrefabs[level], Vector3.zero, Quaternion.identity);
+        }
     }
 
     public void Restart(){

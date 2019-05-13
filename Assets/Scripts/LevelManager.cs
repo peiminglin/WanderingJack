@@ -4,14 +4,46 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    [SerializeField]
+    GameObject goal;
+    [SerializeField]
+    GameManager myGM;
+
+    static bool goalReady;
+    static bool toWin;
+    static bool toRestart;
+
+    void Update() {
+        if (goalReady){
+            ShowGoal();
+            goalReady = false;
+        }
+
+        if (toWin){
+            toWin = false;
+        }
+
+        if (toRestart){
+            myGM.Restart();
+            toRestart = false;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void ShowGoal(){
+        goal.SetActive(true);
+    }
+
+    public static void GoalReached(){
+        goalReady = true;
+    }
+
+    public static void Win(){
+        toWin = true;
+    }
+
+    public static void Restart(){
+        toRestart = true;
+        goalReady = false;
+        toWin = false;
     }
 }

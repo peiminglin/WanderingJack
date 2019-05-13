@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public bool isFloating;
     float floatingTime;
     float maxFloatingTime = 5f;
+    int totalCollectable = 4;
+    int collected;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +51,13 @@ public class Player : MonoBehaviour
         floatingTime = 0;
     }
 
+    public void Collect(){
+        collected++;
+        if (collected >= totalCollectable){
+            LevelManager.GoalReached();
+        }
+    }
+
     public void Hurt(GameObject source = null, int damage = 1){
         Debug.Log("Ouch!");
         if (health > 0){
@@ -58,7 +67,13 @@ public class Player : MonoBehaviour
             }
             animator.SetTrigger("GetHurt");
             animator.SetInteger("Health", health < 0 ? 0 : health);
+        }else{
+            Dead();
         }
+    }
+
+    public void Dead(){
+        LevelManager.Restart();
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
