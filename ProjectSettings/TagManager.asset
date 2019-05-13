@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Planet
   - Stone
+  - Btn
   layers:
   - Default
   - TransparentFX
