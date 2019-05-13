@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour
         StartLevel(currentLevel);
     }
 
+    public void Restart(float seconds){
+        Invoke("Restart", seconds);
+    }
+
     void Update(){
         if (Input.GetKeyDown(KeyCode.R)){
             Restart();

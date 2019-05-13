@@ -25,12 +25,12 @@ public class LevelManager : MonoBehaviour
 
         if (toWin){
             toWin = false;
-            myGM.Restart();
+            myGM.Restart(2f);
         }
 
         if (toRestart){
             toRestart = false;
-            myGM.Restart();
+            myGM.Restart(2f);
         }
     }
 

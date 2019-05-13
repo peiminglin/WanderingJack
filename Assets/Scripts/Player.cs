@@ -67,8 +67,9 @@ public class Player : MonoBehaviour
             }
             animator.SetTrigger("GetHurt");
             animator.SetInteger("Health", health < 0 ? 0 : health);
-        }else{
-            Dead();
+            if (health <= 0){
+                Dead();
+            }
         }
     }
 
@@ -76,14 +77,19 @@ public class Player : MonoBehaviour
         LevelManager.Restart();
     }
 
+    public bool IsDead(){
+        return health <= 0;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision) {
         string objectTag = collision.gameObject.tag;
         switch (objectTag){
             case "Stone":
-                Rigidbody2D stone = collision.gameObject.GetComponent<Rigidbody2D>();
-                if (stone.velocity.magnitude > 5f){
-                    Hurt(stone.gameObject);
-                }
+                //Rigidbody2D stone = collision.gameObject.GetComponent<Rigidbody2D>();
+                //if (stone.velocity.magnitude > 5f){
+                //    Hurt(stone.gameObject);
+                //}
+                Hurt(collision.gameObject);
                 break;
             case "Saw":
             case "Bullet":

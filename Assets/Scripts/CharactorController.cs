@@ -14,6 +14,7 @@ public class CharactorController : MonoBehaviour
     bool isLanded;
     public bool IsLanded{ get { return isLanded; } set { isLanded = value; }}
     GravityObject gravityObject;
+    Player player;
     Vector3 currentOffset;
 
     void Awake()
@@ -21,12 +22,17 @@ public class CharactorController : MonoBehaviour
         myRig = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         gravityObject = GetComponent<GravityObject>();
+        player = GetComponent<Player>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        movingDir = Input.GetAxisRaw("Horizontal");
+        if (player.IsDead()){
+            return;
+        }
+
+        movingDir = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftControl) ? 0 : Input.GetAxisRaw("Horizontal");
         if (isLanded) {
             //gravityObject.SetCurrentOffset();
 
