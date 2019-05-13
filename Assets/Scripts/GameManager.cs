@@ -21,12 +21,13 @@ public class GameManager : MonoBehaviour
     }
 
     public void Restart(){
+        if (currentLevelObject != null)
+            Destroy(currentLevelObject);
         StartLevel(currentLevel);
     }
 
     void Update(){
         if (Input.GetKeyDown(KeyCode.R)){
-            Destroy(currentLevelObject);
             Restart();
         }
     }

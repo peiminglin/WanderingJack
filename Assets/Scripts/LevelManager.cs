@@ -6,12 +6,16 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField]
     GameObject goal;
-    [SerializeField]
+
     GameManager myGM;
 
     static bool goalReady;
     static bool toWin;
     static bool toRestart;
+
+    private void Start() {
+        myGM = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 
     void Update() {
         if (goalReady){
@@ -21,11 +25,12 @@ public class LevelManager : MonoBehaviour
 
         if (toWin){
             toWin = false;
+            myGM.Restart();
         }
 
         if (toRestart){
-            myGM.Restart();
             toRestart = false;
+            myGM.Restart();
         }
     }
 

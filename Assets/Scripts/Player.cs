@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
         if (health > 0){
             health -= damage;
             if (source != null){
-                myRig.AddForce((transform.position - source.transform.position).normalized * 500f, ForceMode2D.Impulse);
+                myRig.AddForce((transform.position - source.transform.position).normalized * 300f, ForceMode2D.Impulse);
             }
             animator.SetTrigger("GetHurt");
             animator.SetInteger("Health", health < 0 ? 0 : health);
