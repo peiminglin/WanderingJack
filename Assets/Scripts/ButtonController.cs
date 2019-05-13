@@ -16,6 +16,7 @@ public class ButtonController : MonoBehaviour
         btn = GameObject.FindGameObjectWithTag("Btn");
     }
     public void StartGame() {
+        Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
     public void BacktoMenu() {
