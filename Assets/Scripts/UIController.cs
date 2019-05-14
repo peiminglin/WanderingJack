@@ -20,19 +20,19 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        playerHealth = (float)player.health/3;
-        healthBar.fillAmount = playerHealth;
+        GameObject go = GameObject.FindGameObjectWithTag("Player");
+        if (go != null){
+            player = go.GetComponent<Player>();
+            playerHealth = (float)player.health / 3;
+            healthBar.fillAmount = playerHealth;
 
-        if (playerHealth == 0)
-            isOver = true;
+            if (playerHealth == 0)
+                isOver = true;
 
-        if (isOver)
-            gameOverMenuUI.SetActive(true);
-        else
-            gameOverMenuUI.SetActive(false);
-
-
-
+            if (isOver)
+                gameOverMenuUI.SetActive(true);
+            else
+                gameOverMenuUI.SetActive(false);
+        }
     }
 }
