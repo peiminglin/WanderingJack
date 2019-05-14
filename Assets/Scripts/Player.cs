@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    int health = 3;
+    public int health = 3;
     int status = 0;
     Rigidbody2D myRig;
     [SerializeField]
