@@ -16,9 +16,9 @@ public class VolcanoFire : MonoBehaviour
         myRig.AddForce(dir.Rotate(Random.Range(-75f, 75f))* power, ForceMode2D.Impulse);
     }
 
-    public void Poo(Vector2 dir){
-        myRig.AddForce(dir * 7f, ForceMode2D.Impulse);
-    }
+    //public void Poo(Vector2 dir){
+    //    myRig.AddForce(dir * 7f, ForceMode2D.Impulse);
+    //}
 
     private void Update() {
         existTime -= Time.deltaTime;

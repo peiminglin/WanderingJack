@@ -9,6 +9,8 @@ TagManager:
   - Saw
   - AttractSource
   - Bullet
+  - Button
+  - Btn
   layers:
   - Default
   - TransparentFX

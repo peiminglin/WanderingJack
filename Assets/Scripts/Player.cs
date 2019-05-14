@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public bool isFloating;
     float floatingTime;
     float maxFloatingTime = 5f;
+    int totalCollectable = 4;
+    int collected;
 
     // Start is called before the first frame update
     void Start()
@@ -49,26 +51,45 @@ public class Player : MonoBehaviour
         floatingTime = 0;
     }
 
+    public void Collect(){
+        collected++;
+        if (collected >= totalCollectable){
+            LevelManager.GoalReached();
+        }
+    }
+
     public void Hurt(GameObject source = null, int damage = 1){
         Debug.Log("Ouch!");
         if (health > 0){
             health -= damage;
             if (source != null){
-                myRig.AddForce((transform.position - source.transform.position).normalized * 500f, ForceMode2D.Impulse);
+                myRig.AddForce((transform.position - source.transform.position).normalized * 300f, ForceMode2D.Impulse);
             }
             animator.SetTrigger("GetHurt");
             animator.SetInteger("Health", health < 0 ? 0 : health);
+            if (health <= 0){
+                Dead();
+            }
         }
+    }
+
+    public void Dead(){
+        LevelManager.Restart();
+    }
+
+    public bool IsDead(){
+        return health <= 0;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
         string objectTag = collision.gameObject.tag;
         switch (objectTag){
             case "Stone":
-                Rigidbody2D stone = collision.gameObject.GetComponent<Rigidbody2D>();
-                if (stone.velocity.magnitude > 5f){
-                    Hurt(stone.gameObject);
-                }
+                //Rigidbody2D stone = collision.gameObject.GetComponent<Rigidbody2D>();
+                //if (stone.velocity.magnitude > 5f){
+                //    Hurt(stone.gameObject);
+                //}
+                Hurt(collision.gameObject);
                 break;
             case "Saw":
             case "Bullet":
