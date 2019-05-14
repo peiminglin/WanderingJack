@@ -10,7 +10,7 @@ public class UIController : MonoBehaviour
     public Image healthBar;
     public GameObject gameOverMenuUI;
     bool isOver = false;
-
+    LevelManager levelManager;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +20,7 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         playerHealth = (float)player.health/3;
         healthBar.fillAmount = playerHealth;
