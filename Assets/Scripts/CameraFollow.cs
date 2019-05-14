@@ -40,7 +40,8 @@ public class CameraFollow : MonoBehaviour
     }
 
     void Follow(){
-        camPosition = new Vector3(target.transform.position.x, target.transform.position.y, camPosition.z);
+        if (target != null)
+            camPosition = new Vector3(target.transform.position.x, target.transform.position.y, camPosition.z);
     }
 
     public void SetTarget(GameObject target){

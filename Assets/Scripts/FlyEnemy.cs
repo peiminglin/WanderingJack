@@ -26,8 +26,14 @@ public class FlyEnemy : Enemy
     // Update is called once per frame
     void Update()
     {
-        CheckDistance();
-        CheckTimeToFire();
+        if (target == null){
+            GameObject go = GameObject.FindWithTag("Player");
+            if (go != null)
+                target = go.transform;
+        }else{
+            CheckDistance();
+            CheckTimeToFire();
+        }
     }
 
     void CheckDistance()

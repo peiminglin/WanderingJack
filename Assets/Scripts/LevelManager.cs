@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
     HealthBar myHealthBar;
 
     GameManager myGM;
-    static Player player;
+    public static Player player;
 
     static bool goalReady;
     static bool toWin;
