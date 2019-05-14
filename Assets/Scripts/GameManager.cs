@@ -15,17 +15,23 @@ public class GameManager : MonoBehaviour
     }
 
     public void StartLevel(int level){
-        if (levelPrefabs.Length > level)
+        if (levelPrefabs.Length > level){
             currentLevelObject = Instantiate(levelPrefabs[level], Vector3.zero, Quaternion.identity);
+        }
     }
 
     public void Restart(){
+        if (currentLevelObject != null)
+            Destroy(currentLevelObject);
         StartLevel(currentLevel);
+    }
+
+    public void Restart(float seconds){
+        Invoke("Restart", seconds);
     }
 
     void Update(){
         if (Input.GetKeyDown(KeyCode.R)){
-            Destroy(currentLevelObject);
             Restart();
         }
     }

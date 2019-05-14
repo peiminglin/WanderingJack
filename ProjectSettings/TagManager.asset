@@ -4,12 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Planet
-  - Stone
-  - Saw
-  - AttractSource
+  - Collectable
   - Bullet
-  - Btn
+  - Goal
+  - Stone
+  - Planet
+  - AttractSource
+  - Saw
   layers:
   - Default
   - TransparentFX
