@@ -9,16 +9,19 @@ public class Player : MonoBehaviour
     public bool isFloating;
     int status = 0;
     Rigidbody2D myRig;
+    Material myMat;
     Animator animator;
     GravityObject go;
     float floatingTime;
     float maxFloatingTime = 5f;
     int totalCollectable = 4;
     int collected;
+    bool isInvincible;
 
     // Start is called before the first frame update
     void Start()
     {
+        myMat = GetComponent<Renderer>().material;
         myRig = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         go = GetComponent<GravityObject>();
@@ -34,7 +37,7 @@ public class Player : MonoBehaviour
             }else{
                 floatingTime += Time.deltaTime;
                 if (floatingTime > maxFloatingTime) {
-                    Hurt(null, health);
+                    Attacked(null, health);
                 }
             }
         } else{
@@ -57,7 +60,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Hurt(GameObject source = null, int damage = 1){
+    public void Attacked(GameObject source = null, int damage = 1){
+        if (!isInvincible && health > 0){
+            GetHurt(source, damage);
+        }
+    }
+
+    void GetHurt(GameObject source = null, int damage = 1){
         Debug.Log("Ouch!");
         if (health > 0){
             health -= damage;
@@ -68,12 +77,26 @@ public class Player : MonoBehaviour
             animator.SetInteger("Health", health < 0 ? 0 : health);
             if (health <= 0){
                 Dead();
+            }else{
+                InvincibleFor(2f);
             }
         }
     }
 
     public void Dead(){
         LevelManager.Restart();
+    }
+
+    public void InvincibleFor(float time){
+        isInvincible = true;
+        myMat.color = myMat.color.SetAlpha(0.5f);
+        StartCoroutine(InvincibleLast(time));
+    }
+
+    IEnumerator InvincibleLast(float time){
+        yield return new WaitForSeconds(time);
+        isInvincible = false;
+        myMat.color = myMat.color.SetAlpha(1);
     }
 
     public bool IsDead(){
@@ -87,12 +110,12 @@ public class Player : MonoBehaviour
                 MeteoroliteController stone = collision.gameObject.GetComponent<MeteoroliteController>();
                 int attack = stone.GetAttack();
                 if (attack > 0){
-                    Hurt(collision.gameObject, attack);
+                    Attacked(collision.gameObject, attack);
                 }
                 break;
             case "Saw":
             case "Bullet":
-                Hurt(collision.gameObject);
+                Attacked(collision.gameObject);
                 break;
             default:
                 break;

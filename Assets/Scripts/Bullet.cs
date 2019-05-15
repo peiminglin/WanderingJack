@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             //Debug.Log("hitted");
-            col.gameObject.GetComponent<Player>().Hurt();
+            col.gameObject.GetComponent<Player>().Attacked();
             Destroy(gameObject);
         }
     }

@@ -19,4 +19,8 @@ public static class Extensions {
     public static Vector3 To3d(this Vector2 v2, float z = 0){
         return new Vector3(v2.x, v2.y, z);
     }
+
+    public static Color SetAlpha(this Color color, float a){
+        return new Color(color.r, color.g, color.b, a);
+    }
 }
