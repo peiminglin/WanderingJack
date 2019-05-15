@@ -32,6 +32,8 @@ public class CameraFollow : MonoBehaviour
             float panx = Input.GetAxis("Horizontal");
             float pany = Input.GetAxis("Vertical");
             Pan(new Vector3(panx, pany, camPosition.z));
+        }else if (Input.GetKeyUp(KeyCode.LeftShift)){
+            Pan(Vector3.zero);
         }else if (Input.GetKeyDown(KeyCode.LeftControl)){
             Zoom(2f);
         }else if (Input.GetKeyUp(KeyCode.LeftControl)){

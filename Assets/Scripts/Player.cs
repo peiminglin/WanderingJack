@@ -6,12 +6,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int health = 3;
+    public bool isFloating;
     int status = 0;
     Rigidbody2D myRig;
-    [SerializeField]
     Animator animator;
     GravityObject go;
-    public bool isFloating;
     float floatingTime;
     float maxFloatingTime = 5f;
     int totalCollectable = 4;
@@ -63,7 +62,7 @@ public class Player : MonoBehaviour
         if (health > 0){
             health -= damage;
             if (source != null){
-                myRig.AddForce((transform.position - source.transform.position).normalized * 300f, ForceMode2D.Impulse);
+                myRig.AddForce((transform.position - source.transform.position).normalized * 5f, ForceMode2D.Impulse);
             }
             animator.SetTrigger("GetHurt");
             animator.SetInteger("Health", health < 0 ? 0 : health);
@@ -85,11 +84,11 @@ public class Player : MonoBehaviour
         string objectTag = collision.gameObject.tag;
         switch (objectTag){
             case "Stone":
-                //Rigidbody2D stone = collision.gameObject.GetComponent<Rigidbody2D>();
-                //if (stone.velocity.magnitude > 5f){
-                //    Hurt(stone.gameObject);
-                //}
-                Hurt(collision.gameObject);
+                MeteoroliteController stone = collision.gameObject.GetComponent<MeteoroliteController>();
+                int attack = stone.GetAttack();
+                if (attack > 0){
+                    Hurt(collision.gameObject, attack);
+                }
                 break;
             case "Saw":
             case "Bullet":
