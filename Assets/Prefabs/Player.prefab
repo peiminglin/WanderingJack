@@ -157,8 +157,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d60b7dd343395474f8f117fe625bedfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.72
-  jumpingPower: 5
+  steppableLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  speed: 2.5
+  jumpingPower: 7
 --- !u!114 &3933533190521837097
 MonoBehaviour:
   m_ObjectHideFlags: 0

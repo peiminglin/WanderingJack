@@ -93,7 +93,8 @@ public class GravityObject : MonoBehaviour {
 
     public void Orbit(float movement, float speed){
         float angle = movement * speed * gravitySource.Radius * 180 / Mathf.PI;
-        transform.RotateAround(gravitySource.transform.position, -Vector3.forward, angle);
+        //transform.RotateAround(gravitySource.transform.position, -Vector3.forward, angle);
+        myRig.AddForce(movement * transform.up * speed * 100);
         //GetCurrentOffset();
     }
 

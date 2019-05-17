@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject[] levelPrefabs;
     GameObject currentLevelObject;
-    int currentLevel = 0;
+    int currentLevel = 1;
     //public static Player player;
 
     void Start(){

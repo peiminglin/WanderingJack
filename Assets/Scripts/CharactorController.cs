@@ -5,7 +5,9 @@ using UnityEngine;
 public class CharactorController : MonoBehaviour
 {
     [SerializeField]
-    float speed = 2f;
+    LayerMask steppableLayer;
+    [SerializeField]
+    float speed = 5f;
     [SerializeField]
     float jumpingPower = 5f;
     float movingDir;
@@ -16,6 +18,9 @@ public class CharactorController : MonoBehaviour
     GravityObject gravityObject;
     Player player;
     Vector3 currentOffset;
+    float groundDist;
+    float bodyExtents;
+    float airFriction = 0.95f;
 
     void Awake()
     {
@@ -23,6 +28,9 @@ public class CharactorController : MonoBehaviour
         animator = GetComponent<Animator>();
         gravityObject = GetComponent<GravityObject>();
         player = GetComponent<Player>();
+        BoxCollider2D body = GetComponent<BoxCollider2D>();
+        groundDist = body.bounds.extents.y + 0.1f;
+        bodyExtents = body.bounds.extents.x;
     }
 
     // Update is called once per frame
@@ -38,15 +46,31 @@ public class CharactorController : MonoBehaviour
 
             if (Input.GetButtonDown("Jump")) {
                 myRig.AddForce(transform.up * jumpingPower, ForceMode2D.Impulse);
-                isLanded = false;
+                //isLanded = false;
+            }
+            if (Mathf.Abs(movingDir) > float.Epsilon) {
+                    //gravityObject.Orbit(movingDir, speed * Time.deltaTime);
+                myRig.AddForce(transform.right * movingDir*speed*30f);
             }
         }
 
-        if (Mathf.Abs(movingDir) > float.Epsilon){
-            if (!gravityObject.IsFloating){
-                gravityObject.Orbit(movingDir, speed * Time.deltaTime);
-            }
+        Vector2 fallV = myRig.velocity.ComponentOn(gravityObject.GetGravity());
+        Vector2 sideV = myRig.velocity - fallV;
+        if (sideV.magnitude > speed) {
+            sideV = sideV.SetMagnitude(speed);
+        }else{
+            //sideV *= airFriction;
         }
+
+        if (Input.GetKeyDown(KeyCode.T)){
+        }
+
+        myRig.velocity = fallV + sideV;
+        //if (Mathf.Abs(movingDir) > float.Epsilon){
+        //    if (!gravityObject.IsFloating){
+        //        gravityObject.Orbit(movingDir, speed * Time.deltaTime);
+        //    }
+        //}
 
         animator.SetBool("IsGrounded", isLanded);
         animator.SetBool("IsWalking", System.Math.Abs(movingDir) > float.Epsilon);
@@ -56,8 +80,19 @@ public class CharactorController : MonoBehaviour
         //Vector2 right = transform.TransformDirection(transform.right);
         //myRig.velocity += right * movingDir * speed * Time.fixedDeltaTime;
         //if (Mathf.Abs(movingDir) > float.Epsilon && !gravityObject.IsFloating)
-            //gravityObject.Orbit(movingDir, speed * Time.fixedDeltaTime);
+        //gravityObject.Orbit(movingDir, speed * Time.fixedDeltaTime);
+        bool prevGrounded = isLanded;
+        GroundCheck();
+        if (!prevGrounded && isLanded){
+            myRig.velocity = Vector2.zero;
+        }
+    }
 
+    void GroundCheck(){
+        Debug.DrawRay(transform.position, -transform.up* groundDist, Color.green);
+        isLanded = Physics2D.Raycast(transform.position, -transform.up, groundDist, steppableLayer) ||
+                   Physics2D.Raycast(transform.position + (transform.right * bodyExtents), -transform.up, groundDist, steppableLayer) ||
+                   Physics2D.Raycast(transform.position + (transform.right * -bodyExtents), -transform.up, groundDist, steppableLayer);
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {

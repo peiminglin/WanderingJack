@@ -16,6 +16,14 @@ public static class Extensions {
         return v;
     }
 
+    public static Vector2 ComponentOn(this Vector2 v, Vector2 direction){
+        return direction.normalized * v.magnitude * Mathf.Cos(Vector2.Angle(v, direction)*Mathf.PI/180);
+    }
+
+    public static Vector2 SetMagnitude(this Vector2 v, float magnitude) {
+        return v.normalized * magnitude;
+    }
+
     public static Vector3 To3d(this Vector2 v2, float z = 0){
         return new Vector3(v2.x, v2.y, z);
     }
