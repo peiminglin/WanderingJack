@@ -57,10 +57,7 @@ public class VolcanoController : MonoBehaviour
                     //Vector3 offset = Random.insideUnitCircle.to3d(transform.position.z);
                     if (timeToPoo > explodeFreq){
                         GameObject go = Instantiate(firePrefab, transform.position, Quaternion.identity);
-                        Vector2 dir = transform.up;
-                        dir.Rotate(Random.Range(-75f, 75f));
-                        go.GetComponent<VolcanoFire>().Poo(dir);
-                        go.transform.parent = this.transform.parent;
+                        go.transform.parent = this.transform;
                         fireAmount--;
                         timeToPoo = 0;
                     }else{

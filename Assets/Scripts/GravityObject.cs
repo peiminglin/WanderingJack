@@ -32,6 +32,8 @@ public class GravityObject : MonoBehaviour {
         myRig.AddForce(gravity*myRig.mass);
         //transform.position = (transform.position - gravitySource.transform.position).normalized * gravitySource.Radius + gravitySource.transform.position;
         RotationFix();
+        if (isFloating){}
+        transform.Rotate(new Vector3(0, 0, 1f));
     }
 
     void RotationFix(){
@@ -90,15 +92,8 @@ public class GravityObject : MonoBehaviour {
     }
 
     public void Orbit(float movement, float speed){
-        transform.RotateAround(gravitySource.transform.position, -Vector3.forward, movement * speed);
-        //GetCurrentOffset();
+        float angle = movement * speed * 180 / (Mathf.PI * gravitySource.Radius);
+        transform.RotateAround(gravitySource.transform.position, -Vector3.forward, angle);
+        //myRig.AddForce(movement * transform.up * speed * 100);
     }
-
-    //public void AddGravity(GravitySource source){
-    //    gravitySources.Add(source);
-    //}
-
-    //public void RemoveGravity(GravitySource source){
-    //    gravitySources.Remove(source);
-    //}
 }

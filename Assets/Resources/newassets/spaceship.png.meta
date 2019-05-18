@@ -1,11 +1,15 @@
 fileFormatVersion: 2
 guid: 5f227f5467d104648ab20173ae1c01e3
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: spaceship_0
-    21300002: spaceship_1
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: spaceship_0
+  - first:
+      213: 21300002
+    second: spaceship_1
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -47,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 800
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -145,6 +149,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: cfa4756ab61164cd5949b17e59021fdd
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -165,6 +170,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: cf6c821ec489e445ab2fa8b3b0753157
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -173,10 +179,12 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 62377a3d38c5b42ff812d2e411bf16b7
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
