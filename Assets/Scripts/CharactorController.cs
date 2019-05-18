@@ -56,9 +56,14 @@ public class CharactorController : MonoBehaviour
 
         if (!player.IsFloating){
             myRig.AddForce(transform.right * movingDir * myRig.mass * speed);
-        }else if (Input.GetButton("Jump") && player.Enegy > 0){
-            myRig.AddForce(transform.up * myRig.mass * 10);
-            player.Enegy--;
+        }else if (player.Energy > 20){
+            if (Input.GetButtonDown("Jump")){
+                myRig.AddForce(transform.up * myRig.mass * 10, ForceMode2D.Impulse);
+                player.Energy-= 20;
+            //} else if (Input.GetButton("Jump")){
+                //myRig.AddForce(transform.up * myRig.mass * 10);
+                //player.Energy--;
+            }
         }
         //Vector2 fallV = myRig.velocity.ComponentOn(gravityObject.GetGravity());
         //Vector2 sideV = myRig.velocity - fallV;

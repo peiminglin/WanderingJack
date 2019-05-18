@@ -7,9 +7,9 @@ public class Player : MonoBehaviour {
     public int maxHealth = 5;
     public int Health { get; set; }
 
-    public float maxEnegy = 100f;
-    public float Enegy;// { get; set; }
-    public float EnegyRecoverRate = 1f;
+    public float maxEnergy = 100f;
+    public float Energy;// { get; set; }
+    public float EnergyRecoverRate = 1f;
 
     public bool IsFloating { get; set; }
     //int status = 0;
@@ -33,13 +33,14 @@ public class Player : MonoBehaviour {
         IsFloating = go.IsFloating;
         InvincibleFor(3f);
         Health = maxHealth;
+        Energy = maxEnergy;
     }
 
     // Update is called once per frame
     void Update() {
-        Enegy += Time.deltaTime * EnegyRecoverRate;
-        if (Enegy > maxEnegy) {
-            Enegy = maxEnegy;
+        Energy += Time.deltaTime * EnergyRecoverRate;
+        if (Energy > maxEnergy) {
+            Energy = maxEnergy;
         }
 
         if (IsFloating) {
