@@ -32,8 +32,10 @@ public class GravityObject : MonoBehaviour {
         myRig.AddForce(gravity*myRig.mass);
         //transform.position = (transform.position - gravitySource.transform.position).normalized * gravitySource.Radius + gravitySource.transform.position;
         RotationFix();
-        if (isFloating){}
-        transform.Rotate(new Vector3(0, 0, 1f));
+        if (isFloating){
+            transform.Rotate(new Vector3(0, 0, 1f));
+            Float();
+        }
     }
 
     void RotationFix(){
@@ -80,11 +82,12 @@ public class GravityObject : MonoBehaviour {
         //gravitySource = GalaxyManager.Galaxy;
         gravitySource = null;
         isFloating = true;
-        Float();
+        //Float();
     }
 
     public void Float(){
-        myRig.velocity = myRig.velocity.normalized * floatingSpeed;
+        if (myRig.velocity.magnitude > floatingSpeed)
+            myRig.velocity *= 0.95f;
     }
 
     public GravitySource GetGravitySource(){
@@ -92,8 +95,10 @@ public class GravityObject : MonoBehaviour {
     }
 
     public void Orbit(float movement, float speed){
-        float angle = movement * speed * 180 / (Mathf.PI * gravitySource.Radius);
-        transform.RotateAround(gravitySource.transform.position, -Vector3.forward, angle);
+        if (gravitySource != null){
+            float angle = movement * speed * 180 / (Mathf.PI * gravitySource.Radius);
+            transform.RotateAround(gravitySource.transform.position, -Vector3.forward, angle);
+        }
         //myRig.AddForce(movement * transform.up * speed * 100);
     }
 }

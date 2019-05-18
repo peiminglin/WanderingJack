@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 770613873}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -491,6 +491,7 @@ MonoBehaviour:
   levelPrefabs:
   - {fileID: 6333382641080531363, guid: df141e4500fea4bd1811074b37f48f71, type: 3}
   - {fileID: 6333382641080531363, guid: 4a5038ea28a5d445caa4334682af2f79, type: 3}
+  currentLevel: 1
 --- !u!114 &777828296 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4440696232110283885, guid: 6b5134150873bd048a594b63a9f5c682,
@@ -755,7 +756,7 @@ PrefabInstance:
     - target: {fileID: 7138929293022939927, guid: 9bc5f4b5f0d6b854e925b06ae0321373,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartGame
+      value: RestartLevel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc5f4b5f0d6b854e925b06ae0321373, type: 3}
