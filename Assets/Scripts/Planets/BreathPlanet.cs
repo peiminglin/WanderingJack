@@ -10,27 +10,30 @@ public class BreathPlanet : MonoBehaviour
     float maxScale = 1.5f;
     [SerializeField]
     float speed = 0.1f;
+    float defaultScale;
 
     float currentScale;
 
-    int trigger = 1;
+    int offset = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentScale = transform.localScale.magnitude;
+        defaultScale = transform.localScale.x;
+        currentScale = defaultScale;
+        Debug.Log(defaultScale);
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentScale += trigger * Time.deltaTime * speed;
-        if (currentScale > maxScale){
-            currentScale = maxScale;
-            trigger = -trigger;
-        }else if (currentScale < minScale){
-            currentScale = minScale;
-            trigger = -trigger;
+        currentScale += offset * Time.deltaTime * speed;
+        if (currentScale > maxScale * defaultScale){
+            currentScale = maxScale * defaultScale;
+            offset = -offset;
+        }else if (currentScale < minScale * defaultScale) {
+            currentScale = minScale * defaultScale;
+            offset = -offset;
         }
 
         transform.localScale = new Vector3(currentScale, currentScale, 1);

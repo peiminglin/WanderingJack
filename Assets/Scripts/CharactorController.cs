@@ -10,7 +10,7 @@ public class CharactorController : MonoBehaviour
     float speed = 5f;
     [SerializeField]
     float jumpingPower = 5f;
-    float movingDir;
+    //float movingDir;
     Rigidbody2D myRig;
     Animator animator;
     //bool isLanded;
@@ -40,29 +40,28 @@ public class CharactorController : MonoBehaviour
             return;
         }
 
-        movingDir = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftControl) ? 0 : Input.GetAxisRaw("Horizontal");
+        float movement = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftControl) ? 0 : Input.GetAxisRaw("Horizontal");
+        float airStay = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftControl) ? 0 : Input.GetAxisRaw("Vertical");
         if (IsLanded) {
             if (Input.GetButtonDown("Jump")){
-                Vector2 jumpDir = transform.up.To2d().Rotate(30 * movingDir);
+                Vector2 jumpDir = transform.up.To2d().Rotate(30 * movement);
                 myRig.AddForce(jumpDir * jumpingPower, ForceMode2D.Impulse);
                 //myRig.AddForce(transform.right * movingDir * speed * myRig.mass, ForceMode2D.Impulse);
                 //isLanded = false;
             }
-            if (Mathf.Abs(movingDir) > float.Epsilon) {
-                gravityObject.Orbit(movingDir, speed * Time.deltaTime);
+            if (Mathf.Abs(movement) > float.Epsilon) {
+                gravityObject.Orbit(movement, speed * Time.deltaTime);
                 //myRig.AddForce(transform.right * movingDir * speed * myRig.mass);
             }
         }
 
         if (!player.IsFloating){
-            myRig.AddForce(transform.right * movingDir * myRig.mass * speed);
+            myRig.AddForce(transform.right * movement * myRig.mass * speed);
+            myRig.AddForce(transform.up * airStay * myRig.mass * 5);
         }else if (player.Energy > 20){
             if (Input.GetButtonDown("Jump")){
                 myRig.AddForce(transform.up * myRig.mass * 10, ForceMode2D.Impulse);
                 player.Energy-= 20;
-            //} else if (Input.GetButton("Jump")){
-                //myRig.AddForce(transform.up * myRig.mass * 10);
-                //player.Energy--;
             }
         }
         //Vector2 fallV = myRig.velocity.ComponentOn(gravityObject.GetGravity());
@@ -84,7 +83,7 @@ public class CharactorController : MonoBehaviour
         //}
 
         animator.SetBool("IsGrounded", IsLanded);
-        animator.SetBool("IsWalking", System.Math.Abs(movingDir) > float.Epsilon);
+        animator.SetBool("IsWalking", System.Math.Abs(movement) > float.Epsilon);
     }
 
     private void FixedUpdate() {

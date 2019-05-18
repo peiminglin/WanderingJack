@@ -11,9 +11,12 @@ public class VolcanoController : MonoBehaviour
     VolcanoStatus status;
     float timeToExplode;
     Material myMat;
+    [SerializeField]
+    float warningTime = 2f;
     float countDown;
     [SerializeField]
     int maxFireAmount = 10;
+    float firingPower = 8f;
     int fireAmount;
     float explodeFreq = 0.5f;
     float timeToPoo;
@@ -39,13 +42,13 @@ public class VolcanoController : MonoBehaviour
                     timeToExplode -= Time.deltaTime;
                     if (timeToExplode < 0) {
                         status = VolcanoStatus.Ready;
-                        countDown = 1f;
+                        countDown = warningTime;
                     }
                 }
                 break;
             case VolcanoStatus.Ready:
                 countDown -= Time.deltaTime;
-                myMat.color = Color.Lerp(Color.white, Color.red, 1f - countDown);
+                myMat.color = Color.Lerp(Color.white, Color.red, (warningTime - countDown)/warningTime);
                 if (countDown < 0) {
                     myMat.color = Color.white;
                     status = VolcanoStatus.Explode;
@@ -58,6 +61,8 @@ public class VolcanoController : MonoBehaviour
                     if (timeToPoo > explodeFreq){
                         GameObject go = Instantiate(firePrefab, transform.position, Quaternion.identity);
                         go.transform.parent = this.transform;
+                        Rigidbody2D rb = go.GetComponent<Rigidbody2D>();
+                        rb.AddForce(transform.up.To2d().Rotate(Random.Range(-75f, 75f)) * rb.mass * firingPower, ForceMode2D.Impulse);
                         fireAmount--;
                         timeToPoo = 0;
                     }else{
