@@ -11,6 +11,8 @@ TagManager:
   - Planet
   - AttractSource
   - Saw
+  - UI
+  - Btn
   layers:
   - Default
   - TransparentFX

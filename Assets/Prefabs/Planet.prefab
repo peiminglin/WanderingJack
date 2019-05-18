@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5031550788993480081}
   - component: {fileID: 5375378634166616116}
   - component: {fileID: 373541376074918301}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Planet
   m_TagString: Planet
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ae62493bbe7f4720afe52f0060e3418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 10
+  power: 50
 --- !u!212 &6174882104763451389
 SpriteRenderer:
   m_ObjectHideFlags: 0

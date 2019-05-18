@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 493581206}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -336,6 +336,8 @@ MonoBehaviour:
   playerHealth: 0
   healthBar: {fileID: 777828296}
   gameOverMenuUI: {fileID: 1725976725}
+  isWin: 0
+  winMenuUI: {fileID: 1638208472}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +493,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelPrefabs:
   - {fileID: 6333382641080531363, guid: df141e4500fea4bd1811074b37f48f71, type: 3}
+  - {fileID: 6333382641080531363, guid: 4a5038ea28a5d445caa4334682af2f79, type: 3}
+  currentLevel: 1
 --- !u!114 &777828296 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4440696232110283885, guid: 6b5134150873bd048a594b63a9f5c682,
@@ -588,6 +592,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2320539913639500567}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1638208472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2320539914489611685, guid: cacb395b1d9105e42a3e1df8d508ecfc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2320539913639500567}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1725976725 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3285402948996270336, guid: 3666ee7830129814e9b66137822a397a,
@@ -617,6 +627,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7138929292371827002, guid: 9bc5f4b5f0d6b854e925b06ae0321373,
+        type: 3}
+      propertyPath: m_TagString
+      value: Btn
       objectReference: {fileID: 0}
     - target: {fileID: 7138929292371827003, guid: 9bc5f4b5f0d6b854e925b06ae0321373,
         type: 3}
@@ -794,6 +809,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2320539914489611685, guid: cacb395b1d9105e42a3e1df8d508ecfc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Btn
+      objectReference: {fileID: 0}
     - target: {fileID: 2320539914489611684, guid: cacb395b1d9105e42a3e1df8d508ecfc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -922,6 +942,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameOverMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285402948996270336, guid: 3666ee7830129814e9b66137822a397a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Btn
       objectReference: {fileID: 0}
     - target: {fileID: 3285402948996270339, guid: 3666ee7830129814e9b66137822a397a,
         type: 3}
