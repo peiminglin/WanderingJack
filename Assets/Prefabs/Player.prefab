@@ -110,7 +110,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -160,8 +160,8 @@ MonoBehaviour:
   steppableLayer:
     serializedVersion: 2
     m_Bits: 256
-  speed: 2.5
-  jumpingPower: 7
+  speed: 5
+  jumpingPower: 70
 --- !u!114 &3933533190521837097
 MonoBehaviour:
   m_ObjectHideFlags: 0

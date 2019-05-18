@@ -42,30 +42,35 @@ public class CharactorController : MonoBehaviour
 
         movingDir = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.LeftControl) ? 0 : Input.GetAxisRaw("Horizontal");
         if (isLanded) {
-            //gravityObject.SetCurrentOffset();
-
-            if (Input.GetButtonDown("Jump")) {
-                myRig.AddForce(transform.up * jumpingPower, ForceMode2D.Impulse);
+            if (Input.GetButtonDown("Jump")){
+                Vector2 jumpDir = transform.up.To2d().Rotate(30 * movingDir);
+                myRig.AddForce(jumpDir * jumpingPower, ForceMode2D.Impulse);
+                //myRig.AddForce(transform.right * movingDir * speed * myRig.mass, ForceMode2D.Impulse);
                 //isLanded = false;
             }
             if (Mathf.Abs(movingDir) > float.Epsilon) {
-                    //gravityObject.Orbit(movingDir, speed * Time.deltaTime);
-                myRig.AddForce(transform.right * movingDir*speed*30f);
+                gravityObject.Orbit(movingDir, speed * Time.deltaTime);
+                //myRig.AddForce(transform.right * movingDir * speed * myRig.mass);
             }
         }
 
-        Vector2 fallV = myRig.velocity.ComponentOn(gravityObject.GetGravity());
-        Vector2 sideV = myRig.velocity - fallV;
-        if (sideV.magnitude > speed) {
-            sideV = sideV.SetMagnitude(speed);
-        }else{
-            //sideV *= airFriction;
-        }
+        if (!player.isFloating){
+            myRig.AddForce(transform.right * movingDir * myRig.mass * speed);
+        }else if (Input.GetButtonDown("Jump")){
 
-        if (Input.GetKeyDown(KeyCode.T)){
         }
+        //Vector2 fallV = myRig.velocity.ComponentOn(gravityObject.GetGravity());
+        //Vector2 sideV = myRig.velocity - fallV;
+        //if (sideV.magnitude > speed) {
+        //    sideV = sideV.SetMagnitude(speed);
+        //}else{
+        //    //sideV *= airFriction;
+        //}
 
-        myRig.velocity = fallV + sideV;
+        //if (Input.GetKeyDown(KeyCode.T)){
+        //}
+
+        //myRig.velocity = fallV + sideV;
         //if (Mathf.Abs(movingDir) > float.Epsilon){
         //    if (!gravityObject.IsFloating){
         //        gravityObject.Orbit(movingDir, speed * Time.deltaTime);
@@ -84,7 +89,7 @@ public class CharactorController : MonoBehaviour
         bool prevGrounded = isLanded;
         GroundCheck();
         if (!prevGrounded && isLanded){
-            myRig.velocity = Vector2.zero;
+            //myRig.velocity = myRig.velocity * 0.5f;
         }
     }
 
@@ -95,19 +100,19 @@ public class CharactorController : MonoBehaviour
                    Physics2D.Raycast(transform.position + (transform.right * -bodyExtents), -transform.up, groundDist, steppableLayer);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        switch(collision.gameObject.tag){
-            case "Planet":
-                myRig.velocity = Vector2.zero;
-                isLanded = true;
-                break;
-            default:
-                break;
-        }
-        //gravityObject.GetCurrentOffset();
-    }
+    //private void OnCollisionEnter2D(Collision2D collision) {
+    //    switch(collision.gameObject.tag){
+    //        case "Planet":
+    //            //myRig.velocity = Vector2.zero;
+    //            //isLanded = true;
+    //            break;
+    //        default:
+    //            break;
+    //    }
+    //    //gravityObject.GetCurrentOffset();
+    //}
 
-    private void OnCollisionExit2D(Collision2D collision) {
-    //    isLanded = false;
-    }
+    //private void OnCollisionExit2D(Collision2D collision) {
+    ////    isLanded = false;
+    //}
 }
