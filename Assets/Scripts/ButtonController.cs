@@ -17,13 +17,16 @@ public class ButtonController : MonoBehaviour
     }
     public void StartGame() {
         Time.timeScale = 1;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
     public void BacktoMenu() {
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
-
+    public void Option() {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(1);
+    }
     public void QuitGame() {
         Application.Quit();
     }
