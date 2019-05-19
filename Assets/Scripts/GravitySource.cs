@@ -27,7 +27,7 @@ public class GravitySource : MonoBehaviour {
 
     private void Update() {
         radius = planetRadius;
-        Debug.DrawRay(transform.position, transform.up * radius);
+        //Debug.DrawRay(transform.position, transform.up * radius);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

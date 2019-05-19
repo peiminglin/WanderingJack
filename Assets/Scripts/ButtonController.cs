@@ -10,6 +10,7 @@ public class ButtonController : MonoBehaviour
     public float startLerping;
     public float lerpTime;
     int shouldLerp =2;
+    GameManager gm;
 
     private void Start()
     {
@@ -19,6 +20,12 @@ public class ButtonController : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(2);
     }
+
+    public void RestartLevel(){
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        gm.Restart();
+    }
+
     public void BacktoMenu() {
         Time.timeScale = 1;
         SceneManager.LoadScene(0);

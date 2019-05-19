@@ -27,10 +27,10 @@ public class UIController : MonoBehaviour
         GameObject go = GameObject.FindGameObjectWithTag("Player");
         if (go != null){
             player = go.GetComponent<Player>();
-            playerHealth = (float)player.health / 3;
+            playerHealth = (float)player.Health / player.maxHealth;
             healthBar.fillAmount = playerHealth;
 
-            if (playerHealth == 0)
+            if (playerHealth <= 0)
                 isOver = true;
             
             if (isOver)

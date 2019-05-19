@@ -4,18 +4,25 @@ using UnityEngine;
 
 
 public class Player : MonoBehaviour {
-    public int health = 3;
-    public bool isFloating;
-    int status = 0;
+    public int maxHealth = 5;
+    public int Health { get; set; }
+
+    public float maxEnergy = 100f;
+    public float Energy;// { get; set; }
+    public float EnergyRecoverRate = 1f;
+
+    public bool IsFloating { get; set; }
+    //int status = 0;
     Rigidbody2D myRig;
     Material myMat;
     Animator animator;
     GravityObject go;
     float floatingTime;
-    float maxFloatingTime = 5f;
-    int totalCollectable = 4;
+    readonly float maxFloatingTime = 5f;
+    readonly int totalCollectable = 4;
     int collected;
     bool isInvincible;
+    //readonly float invincibleTime = 3f;
 
     // Start is called before the first frame update
     void Start() {
@@ -23,24 +30,31 @@ public class Player : MonoBehaviour {
         myRig = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         go = GetComponent<GravityObject>();
-        isFloating = go.IsFloating;
+        IsFloating = go.IsFloating;
         InvincibleFor(3f);
+        Health = maxHealth;
+        Energy = maxEnergy;
     }
 
     // Update is called once per frame
     void Update() {
-        if (isFloating) {
-            if (isFloating != go.IsFloating) {
-                isFloating = false;
+        Energy += Time.deltaTime * EnergyRecoverRate;
+        if (Energy > maxEnergy) {
+            Energy = maxEnergy;
+        }
+
+        if (IsFloating) {
+            if (IsFloating != go.IsFloating) {
+                IsFloating = false;
             } else {
                 floatingTime += Time.deltaTime;
                 if (floatingTime > maxFloatingTime) {
-                    Attacked(null, health);
+                    Attacked(null, Health);
                 }
             }
         } else {
-            if (isFloating != go.IsFloating) {
-                isFloating = true;
+            if (IsFloating != go.IsFloating) {
+                IsFloating = true;
                 floatingTime = 0;
             }
         }
@@ -59,21 +73,21 @@ public class Player : MonoBehaviour {
     }
 
     public void Attacked(GameObject source = null, int damage = 1) {
-        if (!isInvincible && health > 0) {
+        if (!isInvincible && Health > 0) {
             GetHurt(source, damage);
         }
     }
 
     void GetHurt(GameObject source = null, int damage = 1) {
         Debug.Log("Ouch!");
-        if (health > 0) {
-            health -= damage;
+        if (Health > 0) {
+            Health -= damage;
             if (source != null) {
                 myRig.AddForce((transform.position - source.transform.position).normalized * 5f, ForceMode2D.Impulse);
             }
             animator.SetTrigger("GetHurt");
-            animator.SetInteger("Health", health < 0 ? 0 : health);
-            if (health <= 0) {
+            animator.SetInteger("Health", Health < 0 ? 0 : Health);
+            if (Health <= 0) {
                 Dead();
             } else {
                 InvincibleFor(2f);
@@ -98,7 +112,7 @@ public class Player : MonoBehaviour {
     }
 
     public bool IsDead() {
-        return health <= 0;
+        return Health <= 0;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
