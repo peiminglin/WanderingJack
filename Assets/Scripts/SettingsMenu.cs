@@ -7,7 +7,13 @@ public class SettingsMenu : MonoBehaviour
 {
     Resolution[] resolutions;
 
-    public Dropdown resolutionDropdown;
+    public Dropdown resolutionDropdown, qualityDropdown;
+
+    bool isFull;
+
+    public Toggle windowToggle;
+
+    int quality;
 
     private void Start()
     {
@@ -23,16 +29,21 @@ public class SettingsMenu : MonoBehaviour
             string option = resolutions[i].width + " x " + resolutions[i].height;
             options.Add(option);
 
-            if (resolutions[i].width == Screen.currentResolution.width &&
-                resolutions[i].height == Screen.currentResolution.height)
+            if (resolutions[i].width == Screen.width &&
+                resolutions[i].height == Screen.height)
             {
                 currentResolutionIndex = i;
             }
         }
-
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+
+        isFull = Screen.fullScreen;
+        windowToggle.isOn = isFull;
+
+        quality = QualitySettings.GetQualityLevel();
+        qualityDropdown.value = quality;
     }
 
     public void SetResolution(int resolutionIndex) {
