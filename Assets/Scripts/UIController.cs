@@ -5,9 +5,8 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    public float playerHealth;
     private Player player;
-    public Image healthBar;
+    public GameObject first, second, third, forth, fifth;
     public GameObject gameOverMenuUI;
     bool isOver = false;
     public bool isWin;
@@ -18,19 +17,39 @@ public class UIController : MonoBehaviour
     void Start()
     {
         isWin = false;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
         GameObject go = GameObject.FindGameObjectWithTag("Player");
         if (go != null){
             player = go.GetComponent<Player>();
-            playerHealth = (float)player.Health / player.maxHealth;
-            healthBar.fillAmount = playerHealth;
+print(player.Health);
+            if (player.Health >= 1)
+                first.SetActive(true);
+            else
+                first.SetActive(false);
+            if (player.Health >= 2)
+                second.SetActive(true);
+            else
+                second.SetActive(false);
+            if (player.Health >= 3)
+                third.SetActive(true);
+            else
+                third.SetActive(false);
+            if (player.Health >= 4)
+                forth.SetActive(true);
+            else
+                forth.SetActive(false);
+            if (player.Health >= 5)
+                fifth.SetActive(true);
+            else
+                fifth.SetActive(false);
 
-            if (playerHealth <= 0)
+            if (player.Health <= 0)
                 isOver = true;
             
             if (isOver)
@@ -38,7 +57,7 @@ public class UIController : MonoBehaviour
             else
                 gameOverMenuUI.SetActive(false);
 
-            if (playerHealth == 0)
+            if (player.Health == 0)
                 isOver = true;
 
             if (isWin)
