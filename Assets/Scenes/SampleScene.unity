@@ -491,7 +491,7 @@ MonoBehaviour:
   levelPrefabs:
   - {fileID: 6333382641080531363, guid: df141e4500fea4bd1811074b37f48f71, type: 3}
   - {fileID: 6333382641080531363, guid: 4a5038ea28a5d445caa4334682af2f79, type: 3}
-  currentLevel: 1
+  currentLevel: 0
 --- !u!114 &777828296 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4440696232110283885, guid: 6b5134150873bd048a594b63a9f5c682,
