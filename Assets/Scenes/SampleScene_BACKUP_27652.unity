@@ -646,6 +646,7 @@ MonoBehaviour:
   levelPrefabs:
   - {fileID: 6333382641080531363, guid: df141e4500fea4bd1811074b37f48f71, type: 3}
   - {fileID: 6333382641080531363, guid: 4a5038ea28a5d445caa4334682af2f79, type: 3}
+<<<<<<< HEAD
   currentLevel: 0
 --- !u!114 &777828296 stripped
 MonoBehaviour:
@@ -659,6 +660,9 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+  currentLevel: 1
+>>>>>>> 705f9be45c4530df149958f575beceb82d0e22b7
 --- !u!1 &944963685
 GameObject:
   m_ObjectHideFlags: 0

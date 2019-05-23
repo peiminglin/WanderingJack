@@ -646,19 +646,7 @@ MonoBehaviour:
   levelPrefabs:
   - {fileID: 6333382641080531363, guid: df141e4500fea4bd1811074b37f48f71, type: 3}
   - {fileID: 6333382641080531363, guid: 4a5038ea28a5d445caa4334682af2f79, type: 3}
-  currentLevel: 0
---- !u!114 &777828296 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4440696232110283885, guid: 6b5134150873bd048a594b63a9f5c682,
-    type: 3}
-  m_PrefabInstance: {fileID: 4440696231333063589}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  currentLevel: 1
 --- !u!1 &944963685
 GameObject:
   m_ObjectHideFlags: 0

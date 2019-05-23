@@ -11,7 +11,6 @@ TagManager:
   - Planet
   - AttractSource
   - Saw
-  - GameManager
   - UI
   - Btn
   layers:
@@ -23,8 +22,13 @@ TagManager:
   - UI
   - 
   - 
+<<<<<<< HEAD
   - Steppable
   - PostProccessing
+=======
+  - 
+  - 
+>>>>>>> 705f9be45c4530df149958f575beceb82d0e22b7
   - 
   - 
   - 

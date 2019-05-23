@@ -11,6 +11,7 @@ public class ButtonController : MonoBehaviour
     public float lerpTime;
     int shouldLerp =2;
     GameManager gm;
+    public GameObject settingMenu;
 
     private void Start()
     {
@@ -29,6 +30,14 @@ public class ButtonController : MonoBehaviour
     public void BacktoMenu() {
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
+    }
+
+    public void OpenOption() {
+        settingMenu.SetActive(true);
+    }
+
+    public void HideOption() {
+        settingMenu.SetActive(false);
     }
 
     public void QuitGame() {

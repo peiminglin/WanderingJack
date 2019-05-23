@@ -12,7 +12,6 @@ TagManager:
   - AttractSource
   - Saw
   - GameManager
-  - UI
   - Btn
   layers:
   - Default
@@ -24,7 +23,7 @@ TagManager:
   - 
   - 
   - Steppable
-  - PostProccessing
+  - 
   - 
   - 
   - 
