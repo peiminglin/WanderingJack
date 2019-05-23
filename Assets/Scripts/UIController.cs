@@ -27,7 +27,7 @@ public class UIController : MonoBehaviour
         GameObject go = GameObject.FindGameObjectWithTag("Player");
         if (go != null){
             player = go.GetComponent<Player>();
-print(player.Health);
+//            print(player.Health);
             if (player.Health >= 1)
                 first.SetActive(true);
             else

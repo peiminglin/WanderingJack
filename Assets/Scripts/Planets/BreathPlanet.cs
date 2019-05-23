@@ -21,7 +21,6 @@ public class BreathPlanet : MonoBehaviour
     {
         defaultScale = transform.localScale.x;
         currentScale = defaultScale;
-        Debug.Log(defaultScale);
     }
 
     // Update is called once per frame

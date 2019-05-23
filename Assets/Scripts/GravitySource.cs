@@ -11,22 +11,25 @@ public class GravitySource : MonoBehaviour {
         set { power = value; }
     }
     //Transform planet;
-    float planetRadius;
+    //float planetRadius;
     CircleCollider2D col;
-    float radius;
     public float Radius {
-        get { return radius; }
-        set { radius = value; }
+        get { return col.bounds.extents.x; }
     }
+    //float radius;
+    //public float Radius {
+    //    get { return radius; }
+    //    set { radius = value; }
+    //}
 
     private void Awake() {
         //planet = GetComponentInParent<Transform>();
         col = transform.parent.GetComponent<CircleCollider2D>();
-        planetRadius = col.bounds.extents.x;// * col.transform.localScale.magnitude;
+//        planetRadius = col.bounds.extents.x;// * col.transform.localScale.magnitude;
     }
 
     private void Update() {
-        radius = planetRadius;
+//        radius = planetRadius;
         //Debug.DrawRay(transform.position, transform.up * radius);
     }
 

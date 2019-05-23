@@ -15,6 +15,7 @@ public class GravityObject : MonoBehaviour {
     }
     [SerializeField]
     float floatingSpeed = 0.3f;
+    float floatDirection = 1f;
     float currentAngle;
 
     // Start is called before the first frame update
@@ -33,7 +34,7 @@ public class GravityObject : MonoBehaviour {
         //transform.position = (transform.position - gravitySource.transform.position).normalized * gravitySource.Radius + gravitySource.transform.position;
         RotationFix();
         if (isFloating){
-            transform.Rotate(new Vector3(0, 0, 1f));
+            transform.Rotate(new Vector3(0, 0, floatDirection));
             Float();
         }
     }
@@ -46,6 +47,14 @@ public class GravityObject : MonoBehaviour {
         }else{
             transform.Rotate(Vector3.forward, floatingSpeed * Time.deltaTime);
         }
+    }
+
+    public void SetRotateDirection(float dir){
+        if (System.Math.Abs(dir) < float.Epsilon) {
+            return;
+        }
+
+        floatDirection = dir > 0 ? -1 : 1;
     }
 
     public Vector3 GetGravity(){
@@ -94,9 +103,12 @@ public class GravityObject : MonoBehaviour {
         return gravitySource;
     }
 
-    public void Orbit(float movement, float speed){
+    public void Orbit(float movement, float speed, float radius = 0){
         if (gravitySource != null){
-            float angle = movement * speed * 180 / (Mathf.PI * gravitySource.Radius);
+            if (System.Math.Abs(radius) < float.Epsilon) {
+                radius = gravitySource.Radius;
+            }
+            float angle = movement * speed * 180 / (Mathf.PI * radius);
             transform.RotateAround(gravitySource.transform.position, -Vector3.forward, angle);
         }
         //myRig.AddForce(movement * transform.up * speed * 100);

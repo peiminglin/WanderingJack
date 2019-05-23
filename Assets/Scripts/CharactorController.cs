@@ -58,10 +58,11 @@ public class CharactorController : MonoBehaviour
         if (!player.IsFloating){
             myRig.AddForce(transform.right * movement * myRig.mass * speed);
             myRig.AddForce(transform.up * airStay * myRig.mass * 5);
-        }else if (player.Energy > 20){
-            if (Input.GetButtonDown("Jump")){
+        }else {
+            gravityObject.SetRotateDirection(movement);
+            if (player.Energy > 20 && Input.GetButtonDown("Jump")) {
                 myRig.AddForce(transform.up * myRig.mass * 10, ForceMode2D.Impulse);
-                player.Energy-= 20;
+                player.Energy -= 20;
             }
         }
         //Vector2 fallV = myRig.velocity.ComponentOn(gravityObject.GetGravity());
@@ -99,7 +100,7 @@ public class CharactorController : MonoBehaviour
     }
 
     void GroundCheck(){
-        Debug.DrawRay(transform.position, -transform.up* groundDist, Color.green);
+        //Debug.DrawRay(transform.position, -transform.up* groundDist, Color.green);
         IsLanded = Physics2D.Raycast(transform.position, -transform.up, groundDist, steppableLayer) ||
                    Physics2D.Raycast(transform.position + (transform.right * bodyExtents), -transform.up, groundDist, steppableLayer) ||
                    Physics2D.Raycast(transform.position + (transform.right * -bodyExtents), -transform.up, groundDist, steppableLayer);
