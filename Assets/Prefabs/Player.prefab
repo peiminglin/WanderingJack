@@ -174,8 +174,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b6ed2ac2204471ba3cd5f4e2d98ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
-  isFloating: 0
+  maxHealth: 5
+  maxEnergy: 100
+  Energy: 0
+  EnergyRecoverRate: 1
 --- !u!95 &2109920586288178871
 Animator:
   serializedVersion: 3
