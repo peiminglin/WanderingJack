@@ -82,6 +82,7 @@ public class GravityObject : MonoBehaviour {
     public void UseGravity(GravitySource source){
         if (source != null){
             gravitySource = source;
+            transform.parent = source.transform.parent;
             //Float();
             isFloating = false;
         }
@@ -89,6 +90,7 @@ public class GravityObject : MonoBehaviour {
 
     public void ResetGravity(){
         //gravitySource = GalaxyManager.Galaxy;
+        transform.parent = transform.parent.parent;
         gravitySource = null;
         isFloating = true;
         //Float();

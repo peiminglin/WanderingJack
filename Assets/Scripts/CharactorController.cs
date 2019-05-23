@@ -100,7 +100,7 @@ public class CharactorController : MonoBehaviour
     }
 
     void GroundCheck(){
-        //Debug.DrawRay(transform.position, -transform.up* groundDist, Color.green);
+        Debug.DrawRay(transform.position, -transform.up* groundDist, Color.green);
         IsLanded = Physics2D.Raycast(transform.position, -transform.up, groundDist, steppableLayer) ||
                    Physics2D.Raycast(transform.position + (transform.right * bodyExtents), -transform.up, groundDist, steppableLayer) ||
                    Physics2D.Raycast(transform.position + (transform.right * -bodyExtents), -transform.up, groundDist, steppableLayer);

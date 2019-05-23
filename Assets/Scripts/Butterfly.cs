@@ -16,7 +16,7 @@ public class Butterfly : MonoBehaviour
     void Start(){
         animator = GetComponent<Animator>();
         mat = GetComponent<Renderer>().material;
-        mat.color = Random.ColorHSV(0, 1, 0.1f, 0.5f, 0.8f, 1f, 1f, 1f);
+        mat.color = Random.ColorHSV(0, 1, 0.3f, 0.6f, 0.9f, 1f, 1f, 1f);
         lastPos = transform.position;
         newPos = lastPos;
         animator.SetBool("IsFly", true);
