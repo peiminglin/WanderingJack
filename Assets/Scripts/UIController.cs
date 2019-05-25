@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     private Player player;
-    public GameObject first, second, third, forth, fifth;
+    public Image healthBar;
     public GameObject gameOverMenuUI;
     bool isOver = false;
     public bool isWin;
@@ -27,27 +27,8 @@ public class UIController : MonoBehaviour
         GameObject go = GameObject.FindGameObjectWithTag("Player");
         if (go != null){
             player = go.GetComponent<Player>();
-//            print(player.Health);
-            if (player.Health >= 1)
-                first.SetActive(true);
-            else
-                first.SetActive(false);
-            if (player.Health >= 2)
-                second.SetActive(true);
-            else
-                second.SetActive(false);
-            if (player.Health >= 3)
-                third.SetActive(true);
-            else
-                third.SetActive(false);
-            if (player.Health >= 4)
-                forth.SetActive(true);
-            else
-                forth.SetActive(false);
-            if (player.Health >= 5)
-                fifth.SetActive(true);
-            else
-                fifth.SetActive(false);
+
+            healthBar.fillAmount = (float)player.Health / player.maxHealth;
 
             if (player.Health <= 0)
                 isOver = true;
