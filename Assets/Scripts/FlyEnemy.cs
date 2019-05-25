@@ -13,7 +13,7 @@ public class FlyEnemy : Enemy
     public float next_fire;
 
     public float firepoint;
- 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,17 +34,26 @@ public class FlyEnemy : Enemy
             CheckDistance();
             CheckTimeToFire();
         }
+
     }
 
     void CheckDistance()
     {
-        if (Vector3.Distance(target.position, transform.position)<=chase_radius && Vector3.Distance(target.position, transform.position)>attack_radius)
+        float RayLength = chase_radius - (attack_radius * 1.1f);
+        //LayerMask mask = LayerMask.GetMask("Steppable");
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, target.position, RayLength);
+        //float distance_to_planet = 99;
+        //Vector3 avoid_col;
+        if (hit.collider == null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        }
-        else if (Vector3.Distance(target.position, transform.position) > chase_radius)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, home_pos, speed * Time.deltaTime);
+            if (Vector3.Distance(target.position, transform.position) <= chase_radius && Vector3.Distance(target.position, transform.position) > attack_radius)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            }
+            else if (Vector3.Distance(target.position, transform.position) > chase_radius)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, home_pos, speed * Time.deltaTime);
+            }
         }
     }
 
