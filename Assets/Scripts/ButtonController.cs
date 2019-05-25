@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ButtonController : MonoBehaviour
 {
@@ -12,10 +13,14 @@ public class ButtonController : MonoBehaviour
     int shouldLerp =2;
     GameManager gm;
     public GameObject settingMenu;
+    public GameObject levelMenu;
+    public int currentLevel;
+    public bool isLoad;
 
     private void Start()
     {
         btn = GameObject.FindGameObjectWithTag("Btn");
+        isLoad = false;
     }
     public void StartGame() {
         Time.timeScale = 1;
@@ -43,6 +48,14 @@ public class ButtonController : MonoBehaviour
     public void QuitGame() {
         Application.Quit();
     }
+
+    public void LoadLevel(Button button)
+    {
+        currentLevel = int.Parse(button.GetComponentInChildren<Text>().text);
+        levelMenu.SetActive(false);
+        isLoad = true;
+    }
+
     private void Update()
     {
         if (shouldLerp == 1)

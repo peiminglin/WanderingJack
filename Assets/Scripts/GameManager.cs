@@ -10,9 +10,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     int currentLevel = 1;
     //public static Player player;
+    public ButtonController buttonController;
 
     void Start(){
-        Restart();
+        Time.timeScale = 0;
     }
 
     public void StartLevel(int level){
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void Restart(){
-        StartLevel(currentLevel);
+        StartLevel(buttonController.currentLevel-1);
     }
 
     public void Restart(float seconds){
@@ -34,6 +35,13 @@ public class GameManager : MonoBehaviour
     void Update(){
         if (Input.GetKeyDown(KeyCode.R)){
             Restart();
+        }
+        if (buttonController.isLoad)
+        {
+            if (Time.timeScale == 0)
+                Restart();
+            Time.timeScale = 1;
+            buttonController.isLoad = false;
         }
     }
 }
