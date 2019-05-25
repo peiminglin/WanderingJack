@@ -154,8 +154,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 97.01, y: -6.5}
-  m_SizeDelta: {x: 256.75, y: 72.5}
+  m_AnchoredPosition: {x: 107.4, y: -6.5}
+  m_SizeDelta: {x: 296.25, y: 72.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &126156888
 MonoBehaviour:
@@ -178,7 +178,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7064bc741f3ea8347863dcecc8dfe60d, type: 3}
+    m_Font: {fileID: 12800000, guid: 09b8b6b070d9f2442b98b98a55c37a95, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -301,7 +301,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 615, y: -16}
+  m_AnchoredPosition: {x: 595, y: -16}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &339964745
@@ -455,7 +455,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7064bc741f3ea8347863dcecc8dfe60d, type: 3}
+    m_Font: {fileID: 12800000, guid: 09b8b6b070d9f2442b98b98a55c37a95, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -629,8 +629,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 68, y: -6.5}
-  m_SizeDelta: {x: 146.5, y: 72.5}
+  m_AnchoredPosition: {x: 73.94, y: -6.5}
+  m_SizeDelta: {x: 169.07, y: 72.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &647972946
 MonoBehaviour:
@@ -653,7 +653,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7064bc741f3ea8347863dcecc8dfe60d, type: 3}
+    m_Font: {fileID: 12800000, guid: 09b8b6b070d9f2442b98b98a55c37a95, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -1053,7 +1053,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7064bc741f3ea8347863dcecc8dfe60d, type: 3}
+    m_Font: {fileID: 12800000, guid: 09b8b6b070d9f2442b98b98a55c37a95, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -1065,7 +1065,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Start
+  m_Text: Play
 --- !u!222 &962992850
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1132,7 +1132,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7064bc741f3ea8347863dcecc8dfe60d, type: 3}
+    m_Font: {fileID: 12800000, guid: 09b8b6b070d9f2442b98b98a55c37a95, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -1582,8 +1582,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: 135}
-  m_SizeDelta: {x: 450.3, y: 76.1}
+  m_AnchoredPosition: {x: 12, y: 144}
+  m_SizeDelta: {x: 698.7, y: 97.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1504341282
 MonoBehaviour:
@@ -1606,19 +1606,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7064bc741f3ea8347863dcecc8dfe60d, type: 3}
-    m_FontSize: 50
+    m_Font: {fileID: 12800000, guid: 09b8b6b070d9f2442b98b98a55c37a95, type: 3}
+    m_FontSize: 70
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 50
-    m_Alignment: 0
-    m_AlignByGeometry: 0
+    m_BestFit: 1
+    m_MinSize: 0
+    m_MaxSize: 100
+    m_Alignment: 4
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Wondering Jack
+  m_Text: Wandering Jack
 --- !u!222 &1504341283
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1655,6 +1655,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 642014789344156670, guid: c5608245051982140a3fe2042033cdf8,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 644957792}
+    - target: {fileID: 642014789344156670, guid: c5608245051982140a3fe2042033cdf8,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetResolution
+      objectReference: {fileID: 0}
+    - target: {fileID: 642014790113668854, guid: c5608245051982140a3fe2042033cdf8,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 644957792}
+    - target: {fileID: 642014790113668854, guid: c5608245051982140a3fe2042033cdf8,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetFullscreen
       objectReference: {fileID: 0}
     - target: {fileID: 244565178838465657, guid: c5608245051982140a3fe2042033cdf8,
         type: 3}
@@ -1761,26 +1781,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 642014790113668854, guid: c5608245051982140a3fe2042033cdf8,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 644957792}
-    - target: {fileID: 642014790113668854, guid: c5608245051982140a3fe2042033cdf8,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetFullscreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 642014789344156670, guid: c5608245051982140a3fe2042033cdf8,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 644957792}
-    - target: {fileID: 642014789344156670, guid: c5608245051982140a3fe2042033cdf8,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetResolution
-      objectReference: {fileID: 0}
     - target: {fileID: 642014789596911205, guid: c5608245051982140a3fe2042033cdf8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1871,8 +1871,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 550, y: 65}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 530.89996, y: 65}
+  m_SizeDelta: {x: 161, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1710061279
 MonoBehaviour:
@@ -2001,8 +2001,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 68, y: -6.5}
-  m_SizeDelta: {x: 146.5, y: 72.5}
+  m_AnchoredPosition: {x: 80.37, y: -6.5}
+  m_SizeDelta: {x: 193.52, y: 72.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1753589583
 MonoBehaviour:
@@ -2025,7 +2025,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7064bc741f3ea8347863dcecc8dfe60d, type: 3}
+    m_Font: {fileID: 12800000, guid: 09b8b6b070d9f2442b98b98a55c37a95, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -2295,6 +2295,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35, y: 0}
+  m_AnchoredPosition: {x: 35, y: -2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
