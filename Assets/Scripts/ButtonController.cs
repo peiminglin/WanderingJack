@@ -17,11 +17,15 @@ public class ButtonController : MonoBehaviour
     public int currentLevel;
     public bool isLoad;
     public Text levelText;
+    public bool isLoadNext;
+    UIController uIController;
 
     private void Start()
     {
        // btn = GameObject.FindGameObjectWithTag("Btn");
         isLoad = false;
+        isLoadNext = false;
+        uIController = this.GetComponent<UIController>();
     }
     public void StartGame() {
         Time.timeScale = 1;
@@ -49,7 +53,12 @@ public class ButtonController : MonoBehaviour
     public void QuitGame() {
         Application.Quit();
     }
-
+    public void LoadNextLevel() {
+        currentLevel++;
+        isLoadNext = true;
+        levelText.text = "level - " + currentLevel;
+        uIController.isWin = false;
+    }
     public void LoadLevel(Button button)
     {
         currentLevel = int.Parse(button.GetComponentInChildren<Text>().text);

@@ -42,15 +42,27 @@ public class GameManager : MonoBehaviour
         {
             if (Time.timeScale == 0)
             {
-                Restart(1.5f);
-                Invoke("DisableAnnouncer",1);
+                ReloadLevel();
             }
             Time.timeScale = 1;
             buttonController.isLoad = false;
         }
+
+        if (buttonController.isLoadNext) {
+            ReloadLevel();
+            levelAnnouncer.SetActive(true);
+            
+            buttonController.isLoadNext = false;
+        }
+            
     }
 
     void DisableAnnouncer() {
         levelAnnouncer.SetActive(false);
+    }
+
+    void ReloadLevel() {
+        Invoke("DisableAnnouncer", 1);
+        Restart(1.1f);
     }
 }
