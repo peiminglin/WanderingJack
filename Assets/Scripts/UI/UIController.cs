@@ -24,11 +24,12 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        GameObject go = GameObject.FindGameObjectWithTag("Player");
-        if (go != null){
-            player = go.GetComponent<Player>();
-
+        if (player == null){
+            GameObject go = GameObject.FindGameObjectWithTag("Player");
+            if (go != null){
+                player = go.GetComponent<Player>();
+            }
+        } else {
             healthBar.fillAmount = (float)player.Health / player.maxHealth;
 
             if (player.Health <= 0)

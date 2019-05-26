@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         }
         if (buttonController.isLoad)
         {
-            if (Time.timeScale == 0)
+            if (System.Math.Abs(Time.timeScale) < float.Epsilon)
             {
                 ReloadLevel();
             }
