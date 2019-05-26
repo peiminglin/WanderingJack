@@ -24,7 +24,7 @@ public class Meteor : MonoBehaviour
         if (timer > 1.5f){
             timer = -1;
             line.enabled = false;
-            Invoke("Respawn", Random.Range(5f, 15f));
+            Invoke("Respawn", Random.Range(10f, 25f));
         } else if (timer >= 0){
             timer += Time.deltaTime;
             head = Vector2.Lerp(start, end, timer > 1 ? 1 : timer);

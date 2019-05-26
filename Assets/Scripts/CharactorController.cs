@@ -22,6 +22,9 @@ public class CharactorController : MonoBehaviour
     float bodyExtents;
     float airFriction = 0.95f;
 
+    float idleTimer;
+    GameObject thinkingBubble;
+
     void Awake()
     {
         myRig = GetComponent<Rigidbody2D>();
@@ -31,6 +34,9 @@ public class CharactorController : MonoBehaviour
         BoxCollider2D body = GetComponent<BoxCollider2D>();
         groundDist = body.bounds.extents.y + 0.1f;
         bodyExtents = body.bounds.extents.x;
+
+        idleTimer = 0;
+        thinkingBubble = transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -52,6 +58,13 @@ public class CharactorController : MonoBehaviour
             if (Mathf.Abs(movement) > float.Epsilon) {
                 gravityObject.Orbit(movement, speed * Time.deltaTime);
                 //myRig.AddForce(transform.right * movingDir * speed * myRig.mass);
+                idleTimer = 0;
+                thinkingBubble.SetActive(false);
+            } else {
+                idleTimer += Time.deltaTime;
+                if (idleTimer > 3f) {
+                    thinkingBubble.SetActive(true);
+                }
             }
         }
 
@@ -65,6 +78,7 @@ public class CharactorController : MonoBehaviour
                 player.Energy -= 20;
             }
         }
+
         //Vector2 fallV = myRig.velocity.ComponentOn(gravityObject.GetGravity());
         //Vector2 sideV = myRig.velocity - fallV;
         //if (sideV.magnitude > speed) {

@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
     public float EnergyRecoverRate = 1f;
 
     public bool IsFloating { get; set; }
+
     //int status = 0;
     Rigidbody2D myRig;
     Material myMat;

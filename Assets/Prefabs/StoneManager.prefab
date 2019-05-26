@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meteoPrefab: {fileID: 6426183771630342428, guid: 7d7a4b01c3ffa47e0893fb6e11d7e29d,
     type: 3}
+  amount: 15
 --- !u!212 &1536437908820042047
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -83,7 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 2ab3265028b0e9041b7740917c2a83c8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 08b04e175871246f29b5c8e47dcd5847, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
