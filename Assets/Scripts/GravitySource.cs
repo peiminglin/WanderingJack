@@ -11,35 +11,40 @@ public class GravitySource : MonoBehaviour {
         set { power = value; }
     }
     //Transform planet;
-    float planetRadius;
+    //float planetRadius;
     CircleCollider2D col;
-    float radius;
     public float Radius {
-        get { return radius; }
-        set { radius = value; }
+        get { return col.bounds.extents.x; }
     }
+    //float radius;
+    //public float Radius {
+    //    get { return radius; }
+    //    set { radius = value; }
+    //}
 
     private void Awake() {
         //planet = GetComponentInParent<Transform>();
         col = transform.parent.GetComponent<CircleCollider2D>();
-        planetRadius = col.bounds.extents.x * col.transform.localScale.magnitude;
+//        planetRadius = col.bounds.extents.x;// * col.transform.localScale.magnitude;
     }
 
     private void Update() {
-        radius = planetRadius;
+//        radius = planetRadius;
+        //Debug.DrawRay(transform.position, transform.up * radius);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.tag.Equals("Player")){
-            if (!collision.gameObject.GetComponent<CharactorController>().IsLanded)
-                collision.gameObject.GetComponent<GravityObject>().UseGravity(this);
+        GravityObject go = collision.gameObject.GetComponent<GravityObject>();
+        if (go != null) {
+            //if (!collision.gameObject.GetComponent<CharactorController>().IsLanded)
+                go.UseGravity(this);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.tag.Equals("Player")) {
-            GravityObject go = collision.gameObject.GetComponent<GravityObject>();
-            if (go.GetGravitySource().Equals(this)) {
+        GravityObject go = collision.gameObject.GetComponent<GravityObject>();
+        if (go != null) {
+            if (this.Equals(go.GetGravitySource())) {
                 go.ResetGravity();
             }
         }
@@ -47,10 +52,12 @@ public class GravitySource : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision) {
         //if (collision.tag.Equals("Player")) {
-        //    GravityObject go = collision.gameObject.GetComponent<GravityObject>();
-        //    if (go.GetGravitySource() == null) {
-        //        go.UseGravity(this);
-        //    }
-        //}
+        //GravityObject go = collision.gameObject.GetComponent<GravityObject>();
+        GravityObject go = collision.gameObject.GetComponent<GravityObject>();
+        if (go != null) {
+            if (go.GetGravitySource() == null) {
+                go.UseGravity(this);
+            }
+        }
     }
 }

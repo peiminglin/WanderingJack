@@ -4,8 +4,16 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Planet
+  - Collectable
+  - Bullet
+  - Goal
   - Stone
+  - Planet
+  - AttractSource
+  - Saw
+  - GameManager
+  - UI
+  - Btn
   layers:
   - Default
   - TransparentFX
@@ -15,8 +23,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Steppable
+  - PostProccessing
   - 
   - 
   - 
