@@ -10,9 +10,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     int currentLevel = 1;
     //public static Player player;
+    public ButtonController buttonController;
+    public GameObject levelAnnouncer;
 
     void Start(){
-        Restart();
+        Time.timeScale = 0;
+        levelAnnouncer.SetActive(true);
     }
 
     public void StartLevel(int level){
@@ -24,7 +27,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void Restart(){
-        StartLevel(currentLevel);
+        StartLevel(buttonController.currentLevel-1);
     }
 
     public void Restart(float seconds){
@@ -35,5 +38,31 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R)){
             Restart();
         }
+        if (buttonController.isLoad)
+        {
+            if (Time.timeScale == 0)
+            {
+                ReloadLevel();
+            }
+            Time.timeScale = 1;
+            buttonController.isLoad = false;
+        }
+
+        if (buttonController.isLoadNext) {
+            ReloadLevel();
+            levelAnnouncer.SetActive(true);
+            
+            buttonController.isLoadNext = false;
+        }
+            
+    }
+
+    void DisableAnnouncer() {
+        levelAnnouncer.SetActive(false);
+    }
+
+    void ReloadLevel() {
+        Invoke("DisableAnnouncer", 1);
+        Restart(1.1f);
     }
 }

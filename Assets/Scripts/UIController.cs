@@ -12,6 +12,7 @@ public class UIController : MonoBehaviour
     public bool isWin;
     private LevelManager levelManager;
     public GameObject winMenuUI;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,7 @@ public class UIController : MonoBehaviour
         if (go != null){
             player = go.GetComponent<Player>();
 
-            //healthBar.fillAmount = (float)player.Health / player.maxHealth;
+            healthBar.fillAmount = (float)player.Health / player.maxHealth;
 
             if (player.Health <= 0)
                 isOver = true;
