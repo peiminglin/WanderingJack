@@ -12,6 +12,7 @@ public class UIController : MonoBehaviour
     public bool isWin;
     private LevelManager levelManager;
     public GameObject winMenuUI;
+    
 
     // Start is called before the first frame update
     void Start()

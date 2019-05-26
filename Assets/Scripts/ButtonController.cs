@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class ButtonController : MonoBehaviour
 {
-    public GameObject btn;
-    public GameObject position1, position2;
+    //public GameObject btn;
+    //public GameObject position1, position2;
     public float startLerping;
     public float lerpTime;
     int shouldLerp =2;
@@ -16,10 +16,11 @@ public class ButtonController : MonoBehaviour
     public GameObject levelMenu;
     public int currentLevel;
     public bool isLoad;
+    public Text levelText;
 
     private void Start()
     {
-        btn = GameObject.FindGameObjectWithTag("Btn");
+       // btn = GameObject.FindGameObjectWithTag("Btn");
         isLoad = false;
     }
     public void StartGame() {
@@ -54,33 +55,34 @@ public class ButtonController : MonoBehaviour
         currentLevel = int.Parse(button.GetComponentInChildren<Text>().text);
         levelMenu.SetActive(false);
         isLoad = true;
+        levelText.text = "level - " + currentLevel;
     }
 
     private void Update()
     {
-        if (shouldLerp == 1)
-        {
-            lerpTime = 0.5f;
+        //if (shouldLerp == 1)
+        //{
+            //lerpTime = 0.5f;
 
-            float time = Time.time - startLerping;
+            //float time = Time.time - startLerping;
 
-            float percentage = time / lerpTime;
+            //float percentage = time / lerpTime;
 
-            btn.transform.position = Vector2.Lerp(position1.transform.position, position2.transform.position, percentage);
+            //btn.transform.position = Vector2.Lerp(position1.transform.position, position2.transform.position, percentage);
 
 
-        }
-        else if(shouldLerp ==0)
-        {
-            lerpTime = 0.5f;
+        //}
+       // else if(shouldLerp ==0)
+        //{
+           // lerpTime = 0.5f;
 
-            float time = Time.time - startLerping;
+            //float time = Time.time - startLerping;
 
-            float percentage = time / lerpTime;
+           // float percentage = time / lerpTime;
 
-            btn.transform.position = Vector2.Lerp(position2.transform.position, position1.transform.position, percentage);
+           // btn.transform.position = Vector2.Lerp(position2.transform.position, position1.transform.position, percentage);
 
-        }
+        //}
 
         
     }

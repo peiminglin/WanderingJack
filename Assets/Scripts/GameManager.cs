@@ -11,9 +11,11 @@ public class GameManager : MonoBehaviour
     int currentLevel = 1;
     //public static Player player;
     public ButtonController buttonController;
+    public GameObject levelAnnouncer;
 
     void Start(){
         Time.timeScale = 0;
+        levelAnnouncer.SetActive(true);
     }
 
     public void StartLevel(int level){
@@ -39,9 +41,16 @@ public class GameManager : MonoBehaviour
         if (buttonController.isLoad)
         {
             if (Time.timeScale == 0)
-                Restart();
+            {
+                Restart(1.5f);
+                Invoke("DisableAnnouncer",1);
+            }
             Time.timeScale = 1;
             buttonController.isLoad = false;
         }
+    }
+
+    void DisableAnnouncer() {
+        levelAnnouncer.SetActive(false);
     }
 }
