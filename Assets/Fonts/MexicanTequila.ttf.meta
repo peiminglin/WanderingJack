@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 7c5edd25209982b4681254ae163efce6
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Mexican Tequila
+  fontNames:
+  - Mexican Tequila
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 26f018263cd28924095d4ada196405ac, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
