@@ -7,6 +7,7 @@ public class UIController : MonoBehaviour
 {
     private Player player;
     public Image healthBar;
+    public Image energyBar;
     public GameObject gameOverMenuUI;
     bool isOver = false;
     public bool isWin;
@@ -30,6 +31,7 @@ public class UIController : MonoBehaviour
             player = go.GetComponent<Player>();
 
             healthBar.fillAmount = (float)player.Health / player.maxHealth;
+            energyBar.fillAmount = (float)player.Energy / player.maxEnergy;
 
             if (player.Health <= 0)
                 isOver = true;
