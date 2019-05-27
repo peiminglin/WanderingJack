@@ -19,6 +19,8 @@ public class ButtonController : MonoBehaviour
     public Text levelText;
     public bool isLoadNext;
     UIController uIController;
+    public AudioClip playBGM, menuBGM;
+    public AudioSource bgmPlayer;
 
     private void Start()
     {
@@ -27,6 +29,7 @@ public class ButtonController : MonoBehaviour
         isLoadNext = false;
         uIController = this.GetComponent<UIController>();
         levelMenu.SetActive(true);
+        bgmPlayer.clip = menuBGM;
     }
     public void StartGame() {
         Time.timeScale = 1;
@@ -66,6 +69,8 @@ public class ButtonController : MonoBehaviour
         levelMenu.SetActive(false);
         isLoad = true;
         levelText.text = "level - " + currentLevel;
+        bgmPlayer.clip = playBGM;
+        bgmPlayer.Play();
     }
 
     private void Update()
