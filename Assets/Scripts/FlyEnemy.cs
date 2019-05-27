@@ -45,18 +45,18 @@ public class FlyEnemy : Enemy
         //float distance_to_planet = 99;
         //Vector3 avoid_col;
         Debug.Log(hit.collider);
-        if (hit.collider == null)
+        //if (hit.collider == null)
+        //{
+        //}
+        Debug.Log("noColl!");
+        if (Vector3.Distance(target.position, transform.position) <= chase_radius && Vector3.Distance(target.position, transform.position) > attack_radius)
         {
-            Debug.Log("noColl!");
-            if (Vector3.Distance(target.position, transform.position) <= chase_radius && Vector3.Distance(target.position, transform.position) > attack_radius)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-            }
-            /*else if (Vector3.Distance(target.position, transform.position) > chase_radius)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, home_pos, speed * Time.deltaTime);
-            }*/
+            transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
+        /*else if (Vector3.Distance(target.position, transform.position) > chase_radius)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, home_pos, speed * Time.deltaTime);
+        }*/
     }
 
     void CheckTimeToFire()
