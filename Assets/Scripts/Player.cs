@@ -19,8 +19,8 @@ public class Player : MonoBehaviour {
     GravityObject go;
     float floatingTime;
     readonly float maxFloatingTime = 5f;
-    readonly int totalCollectable = 4;
-    int collected;
+    public readonly int totalCollectable = 4;
+    public int collected;
     bool isInvincible;
     //readonly float invincibleTime = 3f;
 

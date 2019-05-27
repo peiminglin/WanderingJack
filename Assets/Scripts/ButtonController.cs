@@ -26,6 +26,7 @@ public class ButtonController : MonoBehaviour
         isLoad = false;
         isLoadNext = false;
         uIController = this.GetComponent<UIController>();
+        levelMenu.SetActive(true);
     }
     public void StartGame() {
         Time.timeScale = 1;
