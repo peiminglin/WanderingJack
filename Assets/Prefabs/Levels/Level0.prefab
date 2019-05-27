@@ -42,7 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clockwise: 1
   speed: 5
---- !u!114 &2824002728241945440
+--- !u!114 &9106408814771952559
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,10 +51,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5920047957910221743}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cfcbb3ac8d3f4464a79c4519645900b, type: 3}
+  m_Script: {fileID: 11500000, guid: 2779a8f6f33db47d9824a0db9829c1ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsets: []
+  clockwise: 0
   speed: 5
 --- !u!1 &6333382641080531363
 GameObject:
@@ -155,12 +155,12 @@ PrefabInstance:
     - target: {fileID: 4326390075649859516, guid: d7df283728ebf484bb52309f62366b89,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.22
+      value: 3.49
       objectReference: {fileID: 0}
     - target: {fileID: 4326390075649859516, guid: d7df283728ebf484bb52309f62366b89,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.39
+      value: 11.92
       objectReference: {fileID: 0}
     - target: {fileID: 4326390075649859516, guid: d7df283728ebf484bb52309f62366b89,
         type: 3}
@@ -180,12 +180,12 @@ PrefabInstance:
     - target: {fileID: 4326390075649859516, guid: d7df283728ebf484bb52309f62366b89,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.25320137
+      value: 0.21288982
       objectReference: {fileID: 0}
     - target: {fileID: 4326390075649859516, guid: d7df283728ebf484bb52309f62366b89,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9674136
+      value: 0.97707623
       objectReference: {fileID: 0}
     - target: {fileID: 4326390075649859516, guid: d7df283728ebf484bb52309f62366b89,
         type: 3}
@@ -205,7 +205,7 @@ PrefabInstance:
     - target: {fileID: 4326390075649859516, guid: d7df283728ebf484bb52309f62366b89,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -29.334002
+      value: 24.584002
       objectReference: {fileID: 0}
     - target: {fileID: 4326390075649859516, guid: d7df283728ebf484bb52309f62366b89,
         type: 3}
