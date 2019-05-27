@@ -22,7 +22,7 @@ public class Patrol : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         transform.position = Vector2.MoveTowards(transform.position, move_spots[current].position, speed * Time.deltaTime);
 

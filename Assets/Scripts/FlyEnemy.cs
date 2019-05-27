@@ -39,21 +39,23 @@ public class FlyEnemy : Enemy
 
     void CheckDistance()
     {
-        float RayLength = chase_radius - (attack_radius * 1.1f);
-        //LayerMask mask = LayerMask.GetMask("Steppable");
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, target.position, RayLength);
+        float RayLength = attack_radius * 0.9f;
+        LayerMask mask = LayerMask.GetMask("Steppable");
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, target.position, RayLength, mask);
         //float distance_to_planet = 99;
         //Vector3 avoid_col;
+        Debug.Log(hit.collider);
         if (hit.collider == null)
         {
+            Debug.Log("noColl!");
             if (Vector3.Distance(target.position, transform.position) <= chase_radius && Vector3.Distance(target.position, transform.position) > attack_radius)
             {
                 transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
             }
-            else if (Vector3.Distance(target.position, transform.position) > chase_radius)
+            /*else if (Vector3.Distance(target.position, transform.position) > chase_radius)
             {
                 transform.position = Vector3.MoveTowards(transform.position, home_pos, speed * Time.deltaTime);
-            }
+            }*/
         }
     }
 
