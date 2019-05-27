@@ -21,6 +21,7 @@ public class ButtonController : MonoBehaviour
     UIController uIController;
     public AudioClip playBGM, menuBGM;
     public AudioSource bgmPlayer;
+    public AudioSource buttonSoundPlayer;
 
     private void Start()
     {
@@ -32,6 +33,7 @@ public class ButtonController : MonoBehaviour
         bgmPlayer.clip = menuBGM;
     }
     public void StartGame() {
+        buttonSoundPlayer.Play();
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
@@ -42,22 +44,27 @@ public class ButtonController : MonoBehaviour
     }
 
     public void BacktoMenu() {
+        buttonSoundPlayer.Play();
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 
     public void OpenOption() {
+        buttonSoundPlayer.Play();
         settingMenu.SetActive(true);
     }
 
     public void HideOption() {
+        buttonSoundPlayer.Play();
         settingMenu.SetActive(false);
     }
 
     public void QuitGame() {
+        buttonSoundPlayer.Play();
         Application.Quit();
     }
     public void LoadNextLevel() {
+        buttonSoundPlayer.Play();
         currentLevel++;
         isLoadNext = true;
         levelText.text = "level - " + currentLevel;
@@ -65,6 +72,7 @@ public class ButtonController : MonoBehaviour
     }
     public void LoadLevel(Button button)
     {
+        buttonSoundPlayer.Play();
         currentLevel = int.Parse(button.GetComponentInChildren<Text>().text);
         levelMenu.SetActive(false);
         isLoad = true;
@@ -101,17 +109,17 @@ public class ButtonController : MonoBehaviour
 
         
     }
-    public void MoveMenu() {
-        startLerping = Time.time;
-        shouldLerp = 1;
+    //public void MoveMenu() {
+      //  startLerping = Time.time;
+        //shouldLerp = 1;
+        //
+    //}
 
-    }
+    //public void BacktoStart() {
+      //  startLerping = Time.time;
+        //shouldLerp = 0;
 
-    public void BacktoStart() {
-        startLerping = Time.time;
-        shouldLerp = 0;
-
-    }
+    //}
     
    
 }

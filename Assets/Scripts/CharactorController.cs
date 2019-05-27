@@ -21,6 +21,7 @@ public class CharactorController : MonoBehaviour
     float groundDist;
     float bodyExtents;
     float airFriction = 0.95f;
+    public AudioSource jumpSoundPlayer;
 
     void Awake()
     {
@@ -31,6 +32,7 @@ public class CharactorController : MonoBehaviour
         BoxCollider2D body = GetComponent<BoxCollider2D>();
         groundDist = body.bounds.extents.y + 0.1f;
         bodyExtents = body.bounds.extents.x;
+        jumpSoundPlayer = GameObject.FindGameObjectWithTag("JumpSound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -48,6 +50,7 @@ public class CharactorController : MonoBehaviour
                 myRig.AddForce(jumpDir * jumpingPower, ForceMode2D.Impulse);
                 //myRig.AddForce(transform.right * movingDir * speed * myRig.mass, ForceMode2D.Impulse);
                 //isLanded = false;
+                jumpSoundPlayer.Play();
             }
             if (Mathf.Abs(movement) > float.Epsilon) {
                 gravityObject.Orbit(movement, speed * Time.deltaTime);

@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
     public readonly int totalCollectable = 4;
     public int collected;
     bool isInvincible;
+    AudioSource deadSound;
     //readonly float invincibleTime = 3f;
 
     // Start is called before the first frame update
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour {
         InvincibleFor(3f);
         Health = maxHealth;
         Energy = maxEnergy;
+        deadSound = GameObject.FindGameObjectWithTag("DeadSound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -80,6 +82,7 @@ public class Player : MonoBehaviour {
 
     void GetHurt(GameObject source = null, int damage = 1) {
         Debug.Log("Ouch!");
+        deadSound.Play();
         if (Health > 0) {
             Health -= damage;
             if (source != null) {
