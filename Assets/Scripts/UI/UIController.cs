@@ -30,6 +30,7 @@ public class UIController : MonoBehaviour
     public void Restart(){
         isWin = false;
         shipImgObj.SetActive(false);
+        ResetMission();
     }
 
     // Update is called once per frame
@@ -85,5 +86,11 @@ public class UIController : MonoBehaviour
             if (i > unlockedLevel)
                 levelsBtns[i].interactable = false;
         }
+    }
+
+    public void ResetMission() {
+        if (player != null)
+            player.collected = 0;
+        shipImgObj.SetActive(false);
     }
 }

@@ -1497,7 +1497,8 @@ MonoBehaviour:
   startLerping: 0
   lerpTime: 0
   settingMenu: {fileID: 1659833038}
-  levelMenu: {fileID: 0}
+  levelMenu: {fileID: 6468776240069975295, guid: 5c7fea608d6b35b4386e9258627f0df0,
+    type: 3}
   currentLevel: 0
   isLoad: 0
   levelText: {fileID: 0}
