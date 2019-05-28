@@ -20,7 +20,7 @@ public class FlyEnemy : Enemy
         next_fire = Time.time;
         home_pos = transform.position;
         //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), bullet.GetComponent<Collider2D>());
-        //target = GameObject.FindWithTag("player").transform;
+        target = GameObject.FindWithTag("player").transform;
     }
 
     // Update is called once per frame
