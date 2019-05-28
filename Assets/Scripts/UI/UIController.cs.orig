@@ -23,7 +23,7 @@ public class UIController : MonoBehaviour
     void Start()
     {
         isWin = false;
-        shipImgObj.SetActive(false);
+        ResetMission();
         UnlockLevel();
     }
 
@@ -88,5 +88,10 @@ public class UIController : MonoBehaviour
             if (i > unlockedLevel)
                 levelsBtns[i].interactable = false;
         }
+    }
+
+    public void ResetMission() {
+        player.collected = 0;
+        shipImgObj.SetActive(false);
     }
 }
