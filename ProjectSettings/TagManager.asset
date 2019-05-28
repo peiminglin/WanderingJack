@@ -50,6 +50,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: obstacles
+    uniqueID: 976411477
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
