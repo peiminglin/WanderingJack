@@ -14,6 +14,8 @@ TagManager:
   - GameManager
   - UI
   - Btn
+  - JumpSound
+  - DeadSound
   layers:
   - Default
   - TransparentFX

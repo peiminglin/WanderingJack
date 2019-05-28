@@ -19,6 +19,10 @@ public class ButtonController : MonoBehaviour
     public Text levelText;
     public bool isLoadNext;
     UIController uIController;
+    public AudioClip playBGM, menuBGM;
+    public AudioSource bgmPlayer;
+    public AudioSource buttonSoundPlayer;
+    int levelUnlocked;
 
     private void Start()
     {
@@ -26,8 +30,17 @@ public class ButtonController : MonoBehaviour
         isLoad = false;
         isLoadNext = false;
         uIController = this.GetComponent<UIController>();
+        levelMenu.SetActive(true);
+        bgmPlayer.clip = menuBGM;
+        if (!(PlayerPrefs.GetInt("unlockedLevel") > 1))
+        {
+            levelUnlocked = 1;
+            PlayerPrefs.SetInt("unlockedLevel", levelUnlocked);
+            PlayerPrefs.Save();
+        }
     }
     public void StartGame() {
+        buttonSoundPlayer.Play();
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
@@ -38,33 +51,46 @@ public class ButtonController : MonoBehaviour
     }
 
     public void BacktoMenu() {
+        buttonSoundPlayer.Play();
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 
     public void OpenOption() {
+        buttonSoundPlayer.Play();
         settingMenu.SetActive(true);
     }
 
     public void HideOption() {
+        buttonSoundPlayer.Play();
         settingMenu.SetActive(false);
     }
 
     public void QuitGame() {
+        buttonSoundPlayer.Play();
         Application.Quit();
     }
     public void LoadNextLevel() {
+        buttonSoundPlayer.Play();
         currentLevel++;
         isLoadNext = true;
         levelText.text = "level - " + currentLevel;
         uIController.isWin = false;
+        if (currentLevel > levelUnlocked)
+            levelUnlocked = currentLevel;
+        PlayerPrefs.SetInt("unlockedLevel", levelUnlocked);
+        PlayerPrefs.Save();
+        
     }
     public void LoadLevel(Button button)
     {
+        buttonSoundPlayer.Play();
         currentLevel = int.Parse(button.GetComponentInChildren<Text>().text);
         levelMenu.SetActive(false);
         isLoad = true;
         levelText.text = "level - " + currentLevel;
+        bgmPlayer.clip = playBGM;
+        bgmPlayer.Play();
     }
 
     private void Update()
@@ -95,17 +121,17 @@ public class ButtonController : MonoBehaviour
 
         
     }
-    public void MoveMenu() {
-        startLerping = Time.time;
-        shouldLerp = 1;
+    //public void MoveMenu() {
+      //  startLerping = Time.time;
+        //shouldLerp = 1;
+        //
+    //}
 
-    }
+    //public void BacktoStart() {
+      //  startLerping = Time.time;
+        //shouldLerp = 0;
 
-    public void BacktoStart() {
-        startLerping = Time.time;
-        shouldLerp = 0;
-
-    }
+    //}
     
    
 }

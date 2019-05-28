@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,13 +30,21 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UnlockLevel();
+<<<<<<< HEAD:Assets/Scripts/UI/UIController.cs
         if (player == null){
             GameObject go = GameObject.FindGameObjectWithTag("Player");
             if (go != null){
                 player = go.GetComponent<Player>();
             }
         } else {
+=======
+        UnlockLevel();
+
+        GameObject go = GameObject.FindGameObjectWithTag("Player");
+        if (go != null){
+            player = go.GetComponent<Player>();
+
+>>>>>>> fe0ccba678c2b1f53c4fc9b3b08444177b935105:Assets/Scripts/UIController.cs
             healthBar.fillAmount = (float)player.Health / player.maxHealth;
 
             energyBar.fillAmount = (float)player.Energy / player.maxEnergy;

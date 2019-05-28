@@ -15,6 +15,10 @@ public class SettingsMenu : MonoBehaviour
 
     int quality;
 
+    public AudioSource audio;
+
+    public Slider volume;
+
     private void Start()
     {
         resolutions = Screen.resolutions;
@@ -44,6 +48,10 @@ public class SettingsMenu : MonoBehaviour
 
         quality = QualitySettings.GetQualityLevel();
         qualityDropdown.value = quality;
+
+        volume.value = audio.volume;
+
+
     }
 
     public void SetResolution(int resolutionIndex) {
@@ -56,7 +64,7 @@ public class SettingsMenu : MonoBehaviour
     }
     public void SetVolume(float volume)
     {
-        Debug.Log(volume);
+        audio.volume = volume;
     }
 
     public void SetQuality(int qualityIndex)

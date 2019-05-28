@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,8 +23,11 @@ public class Player : MonoBehaviour {
     public readonly int totalCollectable = 4;
     public int collected;
     bool isInvincible;
+<<<<<<< HEAD:Assets/Scripts/Player/Player.cs
     Thinking thinking;
+=======
     AudioSource deadSound;
+>>>>>>> fe0ccba678c2b1f53c4fc9b3b08444177b935105:Assets/Scripts/Player.cs
     //readonly float invincibleTime = 3f;
 
     // Start is called before the first frame update

@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     }
 
     void ReloadLevel() {
-        Invoke("DisableAnnouncer", 1);
-        Restart(1.1f);
+        Invoke("DisableAnnouncer", 1.3f);
+        Restart(1.4f);
     }
 }
