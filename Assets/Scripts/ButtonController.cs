@@ -45,6 +45,14 @@ public class ButtonController : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void StartFromLevel1() {
+        levelUnlocked = 1;
+        PlayerPrefs.SetInt("unlockedLevel", levelUnlocked);
+        PlayerPrefs.Save();
+        StartGame();
+    }
+
+
     public void RestartLevel(){
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         gm.Restart();
