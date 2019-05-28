@@ -776,7 +776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelPrefabs:
   - {fileID: 6333382641080531363, guid: 4a5038ea28a5d445caa4334682af2f79, type: 3}
-  - {fileID: 6333382641080531363, guid: 390a727703c1f4bbf8e83631bf1dd918, type: 3}
+  - {fileID: 4156294002671981088, guid: 056b38164dec9b74dadfc7381a8f9dec, type: 3}
   - {fileID: 8899571576924722145, guid: 19f0b2b7f587b874eabd48825de22c9e, type: 3}
   - {fileID: 6333382641080531363, guid: f96337ca205d4477f9755ee792a63f92, type: 3}
   - {fileID: 6333382641080531363, guid: df141e4500fea4bd1811074b37f48f71, type: 3}
@@ -2035,6 +2035,30 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1765396816419564633, guid: df38bbb3bf8fcb94caa9b6632f088891,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6615089610050904962, guid: 200bb67a54f634dc596de211b2828492,
+        type: 3}
+    - target: {fileID: 1765396816665376420, guid: df38bbb3bf8fcb94caa9b6632f088891,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7959480486015715714, guid: 200bb67a54f634dc596de211b2828492,
+        type: 3}
+    - target: {fileID: 1765396817068895533, guid: df38bbb3bf8fcb94caa9b6632f088891,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1092457237715133839, guid: 200bb67a54f634dc596de211b2828492,
+        type: 3}
+    - target: {fileID: 1765396817410261587, guid: df38bbb3bf8fcb94caa9b6632f088891,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5486405149821055287, guid: 200bb67a54f634dc596de211b2828492,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df38bbb3bf8fcb94caa9b6632f088891, type: 3}
 --- !u!1001 &2157926068027518057

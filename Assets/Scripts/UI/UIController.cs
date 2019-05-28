@@ -27,6 +27,11 @@ public class UIController : MonoBehaviour
         UnlockLevel();
     }
 
+    public void Restart(){
+        isWin = false;
+        shipImgObj.SetActive(false);
+    }
+
     // Update is called once per frame
     void Update()
     {

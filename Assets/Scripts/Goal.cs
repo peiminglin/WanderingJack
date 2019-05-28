@@ -16,6 +16,7 @@ public class Goal : MonoBehaviour
         if (collision.tag == "Player"){
             LevelManager.Win();
             uiController.isWin = true;
+            gameObject.SetActive(false);
         }
     }
 }

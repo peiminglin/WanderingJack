@@ -47,6 +47,7 @@ public class ButtonController : MonoBehaviour
 
     public void RestartLevel(){
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        uIController.Restart();
         gm.Restart();
     }
 
@@ -75,7 +76,7 @@ public class ButtonController : MonoBehaviour
         currentLevel++;
         isLoadNext = true;
         levelText.text = "level - " + currentLevel;
-        uIController.isWin = false;
+        uIController.Restart();
         if (currentLevel > levelUnlocked)
             levelUnlocked = currentLevel;
         PlayerPrefs.SetInt("unlockedLevel", levelUnlocked);
