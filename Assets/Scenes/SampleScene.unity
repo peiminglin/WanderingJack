@@ -640,9 +640,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelPrefabs:
-  - {fileID: 6333382641080531363, guid: df141e4500fea4bd1811074b37f48f71, type: 3}
   - {fileID: 6333382641080531363, guid: 4a5038ea28a5d445caa4334682af2f79, type: 3}
-  currentLevel: 1
+  - {fileID: 6333382641080531363, guid: 390a727703c1f4bbf8e83631bf1dd918, type: 3}
+  - {fileID: 6333382641080531363, guid: 2ca097f56584342a48e80f96cb54080a, type: 3}
+  - {fileID: 6333382641080531363, guid: f96337ca205d4477f9755ee792a63f92, type: 3}
+  - {fileID: 6333382641080531363, guid: df141e4500fea4bd1811074b37f48f71, type: 3}
+  currentLevel: 3
   buttonController: {fileID: 493581204}
   levelAnnouncer: {fileID: 1785356520}
 --- !u!1001 &825022522

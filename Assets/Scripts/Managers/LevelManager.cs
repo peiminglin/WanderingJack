@@ -6,8 +6,8 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField]
     GameObject goal;
-    [SerializeField]
-    HealthBar myHealthBar;
+    //[SerializeField]
+    //HealthBar myHealthBar;
 
     GameManager myGM;
     public static Player player;

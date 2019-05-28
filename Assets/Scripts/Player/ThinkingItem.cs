@@ -7,11 +7,7 @@ public class ThinkingItem : MonoBehaviour
     [SerializeField]
     Sprite[] sprites;
     int currentGoal = 0;
-    SpriteRenderer spRenderer;
-
-    void Awake(){
-        spRenderer = GetComponent<SpriteRenderer>();
-    }
+    //SpriteRenderer spRenderer;
 
     void Update(){
         transform.Rotate(new Vector3(0, 0, 1f));
@@ -19,7 +15,7 @@ public class ThinkingItem : MonoBehaviour
 
     public void Next(){
         currentGoal = (currentGoal + 1) % sprites.Length;
-        spRenderer.sprite = sprites[currentGoal];
+        GetComponent<SpriteRenderer>().sprite = sprites[currentGoal];
     }
 
     public void Reset() {

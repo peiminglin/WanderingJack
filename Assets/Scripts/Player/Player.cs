@@ -23,6 +23,7 @@ public class Player : MonoBehaviour {
     readonly int totalCollectable = 4;
     int collected;
     bool isInvincible;
+    Thinking thinking;
     //readonly float invincibleTime = 3f;
 
     // Start is called before the first frame update
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour {
         myRig = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         go = GetComponent<GravityObject>();
+        thinking = transform.GetChild(0).GetComponent<Thinking>();
         IsFloating = go.IsFloating;
         InvincibleFor(3f);
         Health = maxHealth;
@@ -69,6 +71,7 @@ public class Player : MonoBehaviour {
     public void Collect() {
         collected++;
         if (collected >= totalCollectable) {
+            thinking.Next();
             LevelManager.GoalReached();
         }
     }
