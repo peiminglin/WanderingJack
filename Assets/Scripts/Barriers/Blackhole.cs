@@ -13,6 +13,6 @@ public class Blackhole : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, 0, 2.5, Space.Self);
+        transform.Rotate(0, 0, 2, Space.Self);
     }
 }
