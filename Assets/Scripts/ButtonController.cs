@@ -80,6 +80,7 @@ public class ButtonController : MonoBehaviour
             levelUnlocked = currentLevel;
         PlayerPrefs.SetInt("unlockedLevel", levelUnlocked);
         PlayerPrefs.Save();
+        uIController.ResetMission();
         
     }
     public void LoadLevel(Button button)
