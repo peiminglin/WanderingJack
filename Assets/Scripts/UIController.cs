@@ -16,18 +16,22 @@ public class UIController : MonoBehaviour
     public bool isWin;
     private LevelManager levelManager;
     public GameObject winMenuUI;
+    public Button[] levelsBtns;
+    public int unlockedLevel;
 
     // Start is called before the first frame update
     void Start()
     {
         isWin = false;
         shipImgObj.SetActive(false);
+        UnlockLevel();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        UnlockLevel();
+
         GameObject go = GameObject.FindGameObjectWithTag("Player");
         if (go != null){
             player = go.GetComponent<Player>();
@@ -65,6 +69,15 @@ public class UIController : MonoBehaviour
                 winMenuUI.SetActive(true);
             else
                 winMenuUI.SetActive(false);
+        }
+    }
+
+    void UnlockLevel() {
+        unlockedLevel = PlayerPrefs.GetInt("unlockedLevel") - 1;
+        for (int i = 0; i < levelsBtns.Length; i++)
+        {
+            if (i > unlockedLevel)
+                levelsBtns[i].interactable = false;
         }
     }
 }

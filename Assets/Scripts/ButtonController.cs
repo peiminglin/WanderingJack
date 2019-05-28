@@ -22,6 +22,7 @@ public class ButtonController : MonoBehaviour
     public AudioClip playBGM, menuBGM;
     public AudioSource bgmPlayer;
     public AudioSource buttonSoundPlayer;
+    int levelUnlocked;
 
     private void Start()
     {
@@ -31,6 +32,12 @@ public class ButtonController : MonoBehaviour
         uIController = this.GetComponent<UIController>();
         levelMenu.SetActive(true);
         bgmPlayer.clip = menuBGM;
+        if (!(PlayerPrefs.GetInt("unlockedLevel") > 1))
+        {
+            levelUnlocked = 1;
+            PlayerPrefs.SetInt("unlockedLevel", levelUnlocked);
+            PlayerPrefs.Save();
+        }
     }
     public void StartGame() {
         buttonSoundPlayer.Play();
@@ -69,6 +76,11 @@ public class ButtonController : MonoBehaviour
         isLoadNext = true;
         levelText.text = "level - " + currentLevel;
         uIController.isWin = false;
+        if (currentLevel > levelUnlocked)
+            levelUnlocked = currentLevel;
+        PlayerPrefs.SetInt("unlockedLevel", levelUnlocked);
+        PlayerPrefs.Save();
+        
     }
     public void LoadLevel(Button button)
     {
