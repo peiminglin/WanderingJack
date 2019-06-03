@@ -18,6 +18,8 @@ TagManager:
   - DeadSound
   - MissionBar
   - PickupSound
+  - HitSound
+  - KittySound
   layers:
   - Default
   - TransparentFX

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6085635802164425625}
   - component: {fileID: 6342568317569982880}
   - component: {fileID: 4345697719484996902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Saw_1
   m_TagString: Saw
   m_Icon: {fileID: 0}

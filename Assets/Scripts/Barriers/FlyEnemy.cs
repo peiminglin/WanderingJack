@@ -5,11 +5,11 @@ using UnityEngine;
 public class FlyEnemy : Enemy
 {
     public Transform target;
-    public float chase_radius;
-    public float attack_radius;
+    public float chase_radius = 4f;
+    public float attack_radius = 2f;
     public Vector3 home_pos;
     public GameObject bullet;
-    public float firerate;
+    public float firerate = 1f;
     public float next_fire;
 
     public float firepoint;

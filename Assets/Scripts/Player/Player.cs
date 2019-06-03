@@ -136,6 +136,7 @@ public class Player : MonoBehaviour {
             case "Saw":
             case "Bullet":
                 Attacked(collision.gameObject);
+                Debug.Log("Attacked by Saw");
                 break;
             default:
                 break;

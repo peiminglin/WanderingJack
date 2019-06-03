@@ -276,7 +276,7 @@ MonoBehaviour:
   maxHealth: 5
   maxEnergy: 100
   Energy: 0
-  EnergyRecoverRate: 1
+  EnergyRecoverRate: 2
   collected: 0
 --- !u!95 &2109920586288178871
 Animator:
