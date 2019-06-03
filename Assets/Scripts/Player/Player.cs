@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +12,6 @@ public class Player : MonoBehaviour {
     public float EnergyRecoverRate = 1f;
 
     public bool IsFloating { get; set; }
-
     //int status = 0;
     Rigidbody2D myRig;
     Material myMat;
@@ -23,8 +22,7 @@ public class Player : MonoBehaviour {
     public readonly int totalCollectable = 4;
     public int collected;
     bool isInvincible;
-    Thinking thinking;
-    AudioSource deadSound;
+    AudioSource deadSound, getHitSound, kittySound;
     //readonly float invincibleTime = 3f;
 
     // Start is called before the first frame update
@@ -33,12 +31,13 @@ public class Player : MonoBehaviour {
         myRig = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         go = GetComponent<GravityObject>();
-        thinking = transform.GetChild(0).GetComponent<Thinking>();
         IsFloating = go.IsFloating;
         InvincibleFor(3f);
         Health = maxHealth;
         Energy = maxEnergy;
         deadSound = GameObject.FindGameObjectWithTag("DeadSound").GetComponent<AudioSource>();
+        getHitSound = GameObject.FindGameObjectWithTag("HitSound").GetComponent<AudioSource>();
+        kittySound = GameObject.FindGameObjectWithTag("KittySound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -73,7 +72,6 @@ public class Player : MonoBehaviour {
     public void Collect() {
         collected++;
         if (collected >= totalCollectable) {
-            thinking.Next();
             LevelManager.GoalReached();
         }
     }
@@ -86,7 +84,8 @@ public class Player : MonoBehaviour {
 
     void GetHurt(GameObject source = null, int damage = 1) {
         Debug.Log("Ouch!");
-        deadSound.Play();
+        getHitSound.Play();
+        kittySound.Play();
         if (Health > 0) {
             Health -= damage;
             if (source != null) {
@@ -97,6 +96,7 @@ public class Player : MonoBehaviour {
             animator.SetInteger("Health", Health < 0 ? 0 : Health);
             if (Health <= 0) {
                 Dead();
+                deadSound.Play();
             } else {
                 InvincibleFor(2f);
             }

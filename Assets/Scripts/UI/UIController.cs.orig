@@ -12,7 +12,7 @@ public class UIController : MonoBehaviour
     public GameObject shipImgObj;
 
     public GameObject gameOverMenuUI;
-    bool isOver = false;
+    public bool isOver = false;
     public bool isWin;
     private LevelManager levelManager;
     public GameObject winMenuUI;
@@ -24,27 +24,18 @@ public class UIController : MonoBehaviour
     {
         isWin = false;
         ResetMission();
-        UnlockLevel();
+        //UnlockLevel();
     }
 
     // Update is called once per frame
     void Update()
     {
-<<<<<<< HEAD:Assets/Scripts/UI/UIController.cs
-        if (player == null){
-            GameObject go = GameObject.FindGameObjectWithTag("Player");
-            if (go != null){
-                player = go.GetComponent<Player>();
-            }
-        } else {
-=======
-        UnlockLevel();
+        //UnlockLevel();
 
         GameObject go = GameObject.FindGameObjectWithTag("Player");
         if (go != null){
             player = go.GetComponent<Player>();
 
->>>>>>> fe0ccba678c2b1f53c4fc9b3b08444177b935105:Assets/Scripts/UIController.cs
             healthBar.fillAmount = (float)player.Health / player.maxHealth;
 
             energyBar.fillAmount = (float)player.Energy / player.maxEnergy;

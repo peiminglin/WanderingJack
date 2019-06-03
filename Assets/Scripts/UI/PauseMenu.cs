@@ -6,18 +6,19 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool isPaused = false;
     public GameObject pasueMenuUI;
+    UIController uI;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        uI = this.GetComponent<UIController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.Escape)&&(!uI.isWin)&&(!uI.isOver)) {
             if (isPaused)
             {
                 Resume();

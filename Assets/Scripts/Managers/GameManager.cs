@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void Restart(){
-        StartLevel(buttonController.currentLevel-1);
+        StartLevel(buttonController.currentLevel);
     }
 
     public void Restart(float seconds){
