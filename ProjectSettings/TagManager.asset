@@ -16,6 +16,8 @@ TagManager:
   - Btn
   - JumpSound
   - DeadSound
+  - MissionBar
+  - PickupSound
   layers:
   - Default
   - TransparentFX
