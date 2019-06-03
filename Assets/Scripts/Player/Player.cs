@@ -72,6 +72,7 @@ public class Player : MonoBehaviour {
     public void Collect() {
         collected++;
         if (collected >= totalCollectable) {
+            transform.GetChild(0).GetComponent<Thinking>().Next();
             LevelManager.GoalReached();
         }
     }
@@ -136,7 +137,6 @@ public class Player : MonoBehaviour {
             case "Saw":
             case "Bullet":
                 Attacked(collision.gameObject);
-                Debug.Log("Attacked by Saw");
                 break;
             default:
                 break;

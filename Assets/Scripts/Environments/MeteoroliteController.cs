@@ -29,7 +29,8 @@ public class MeteoroliteController : MonoBehaviour
             transform.position = center;
         }
 
-        power = myRig.velocity.magnitude * transform.localScale.magnitude * transform.localScale.magnitude / 4;
+        //power = myRig.velocity.magnitude * transform.localScale.magnitude * transform.localScale.magnitude / 4;
+        power = 1;
         if ((int)power != attack){
             StartCoroutine(WaitAndSetAttack((int)power));
         }
