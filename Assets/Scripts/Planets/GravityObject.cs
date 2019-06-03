@@ -15,6 +15,8 @@ public class GravityObject : MonoBehaviour {
     }
     [SerializeField]
     float floatingSpeed = 0.3f;
+    [SerializeField]
+    float rotatingSpeed = 5f;
     float floatDirection = 1f;
     float currentAngle;
 
@@ -34,7 +36,7 @@ public class GravityObject : MonoBehaviour {
         //transform.position = (transform.position - gravitySource.transform.position).normalized * gravitySource.Radius + gravitySource.transform.position;
         RotationFix();
         if (isFloating){
-            transform.Rotate(new Vector3(0, 0, floatDirection));
+            transform.Rotate(new Vector3(0, 0, floatDirection*rotatingSpeed));
             Float();
         }
     }

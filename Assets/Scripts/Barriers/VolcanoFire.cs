@@ -5,7 +5,8 @@ using UnityEngine;
 public class VolcanoFire : MonoBehaviour
 {
     //Rigidbody2D myRig;
-    float existTime = 5f;
+    [SerializeField]
+    float existTime = 3f;
 
     // Start is called before the first frame update
     void Start(){

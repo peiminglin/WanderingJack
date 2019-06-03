@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatingSpeed: 0.3
+  rotatingSpeed: 2
 --- !u!50 &300717114980469183
 Rigidbody2D:
   serializedVersion: 4
@@ -259,6 +260,7 @@ MonoBehaviour:
     m_Bits: 256
   speed: 5
   jumpingPower: 70
+  jumpSoundPlayer: {fileID: 0}
 --- !u!114 &3933533190521837097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +277,7 @@ MonoBehaviour:
   maxEnergy: 100
   Energy: 0
   EnergyRecoverRate: 1
+  collected: 0
 --- !u!95 &2109920586288178871
 Animator:
   serializedVersion: 3

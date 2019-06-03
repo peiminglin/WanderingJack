@@ -32,12 +32,12 @@ public class ButtonController : MonoBehaviour
         uIController = this.GetComponent<UIController>();
         levelMenu.SetActive(true);
         bgmPlayer.clip = menuBGM;
-        if (!(PlayerPrefs.GetInt("unlockedLevel") > 1))
-        {
-            levelUnlocked = 1;
+        //if (!(PlayerPrefs.GetInt("unlockedLevel") > 1))
+        //{
+            levelUnlocked = 5;
             PlayerPrefs.SetInt("unlockedLevel", levelUnlocked);
             PlayerPrefs.Save();
-        }
+        //}
     }
     public void StartGame() {
         buttonSoundPlayer.Play();

@@ -30,7 +30,7 @@ public class VolcanoController : MonoBehaviour
     }
 
     void NextExplosion(){
-        timeToExplode = Random.Range(3f, 10f);
+        timeToExplode = Random.Range(8f, 15f);
     }
 
     // Update is called once per frame

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1452575557970002820}
   - component: {fileID: 1436728175919008593}
   - component: {fileID: 7243200552172275587}
+  - component: {fileID: 6793951335749216114}
   m_Layer: 0
   m_Name: collectables1
   m_TagString: Collectable
@@ -120,3 +121,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218230b7989f74259afec74372fda953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6793951335749216114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7337736406816728903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dfd22b562a7b478ba848bd4b0d5a40e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minScale: 1
+  maxScale: 1.5
+  speed: 1
