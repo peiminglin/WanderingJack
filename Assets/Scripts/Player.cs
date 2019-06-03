@@ -22,7 +22,7 @@ public class Player : MonoBehaviour {
     public readonly int totalCollectable = 4;
     public int collected;
     bool isInvincible;
-    AudioSource deadSound;
+    AudioSource deadSound, getHitSound, kittySound;
     //readonly float invincibleTime = 3f;
 
     // Start is called before the first frame update
@@ -36,6 +36,8 @@ public class Player : MonoBehaviour {
         Health = maxHealth;
         Energy = maxEnergy;
         deadSound = GameObject.FindGameObjectWithTag("DeadSound").GetComponent<AudioSource>();
+        getHitSound = GameObject.FindGameObjectWithTag("HitSound").GetComponent<AudioSource>();
+        kittySound = GameObject.FindGameObjectWithTag("KittySound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -82,7 +84,8 @@ public class Player : MonoBehaviour {
 
     void GetHurt(GameObject source = null, int damage = 1) {
         Debug.Log("Ouch!");
-        deadSound.Play();
+        getHitSound.Play();
+        kittySound.Play();
         if (Health > 0) {
             Health -= damage;
             if (source != null) {
@@ -93,6 +96,7 @@ public class Player : MonoBehaviour {
             animator.SetInteger("Health", Health < 0 ? 0 : Health);
             if (Health <= 0) {
                 Dead();
+                deadSound.Play();
             } else {
                 InvincibleFor(2f);
             }
