@@ -80,15 +80,16 @@ public class ButtonController : MonoBehaviour
         Application.Quit();
     }
     public void LoadNextLevel() {
+        Time.timeScale = 1;
         buttonSoundPlayer.Play();
         currentLevel++;
         isLoadNext = true;
         levelText.text = "level - " + currentLevel;
         uIController.Restart();
-        if (currentLevel > levelUnlocked)
-            levelUnlocked = currentLevel;
-        PlayerPrefs.SetInt("unlockedLevel", levelUnlocked);
-        PlayerPrefs.Save();
+        //if (currentLevel > levelUnlocked)
+            //levelUnlocked = currentLevel;
+        //PlayerPrefs.SetInt("unlockedLevel", levelUnlocked);
+        //PlayerPrefs.Save();
         uIController.ResetMission();
         
     }
