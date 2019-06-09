@@ -17,6 +17,7 @@ public class Goal : MonoBehaviour
             LevelManager.Win();
             uiController.isWin = true;
             gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
         }
     }
 }
