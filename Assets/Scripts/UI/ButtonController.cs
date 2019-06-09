@@ -82,7 +82,10 @@ public class ButtonController : MonoBehaviour
     public void LoadNextLevel() {
         Time.timeScale = 1;
         buttonSoundPlayer.Play();
-        currentLevel++;
+        if (currentLevel < 5)
+            currentLevel++;
+        else
+            currentLevel = 0;
         isLoadNext = true;
         levelText.text = "level - " + currentLevel;
         uIController.Restart();
