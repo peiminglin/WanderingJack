@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Collectable : MonoBehaviour
-
-
 {
-
     Animator anim;
     AudioSource pickupSound;
     private void Start()
