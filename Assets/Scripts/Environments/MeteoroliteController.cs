@@ -30,7 +30,7 @@ public class MeteoroliteController : MonoBehaviour
         }
 
         //power = myRig.velocity.magnitude * transform.localScale.magnitude * transform.localScale.magnitude / 4;
-        power = 1;
+        power = 0;
         if ((int)power != attack){
             StartCoroutine(WaitAndSetAttack((int)power));
         }

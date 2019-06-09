@@ -13,6 +13,7 @@ public class CameraFollow : MonoBehaviour
 
     public float defaultSize;
     readonly float panRadius = 5f;
+    float zoomSize = 1f;
 
 
     // Start is called before the first frame update
@@ -56,9 +57,10 @@ public class CameraFollow : MonoBehaviour
 
     public void Zoom(float size = 1f){
         Camera.main.orthographicSize = defaultSize * size;
+        zoomSize = size;
     }
 
     public void Pan(Vector3 direction){
-        camOffset = direction.normalized * panRadius;
+        camOffset = direction.normalized * panRadius * zoomSize;
     }
 }
