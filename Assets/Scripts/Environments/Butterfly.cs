@@ -13,7 +13,7 @@ public class Butterfly : MonoBehaviour
     float timer;
 
     // Start is called before the first frame update
-    void Start(){
+    void Awake(){
         animator = GetComponent<Animator>();
         mat = GetComponent<Renderer>().material;
         //mat.color = Random.ColorHSV(0, 1, 0.3f, 0.6f, 0.9f, 1f, 1f, 1f);

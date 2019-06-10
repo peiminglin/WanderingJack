@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HintStop : MonoBehaviour
 {
-    //bool ifShow = false;
+    bool ifShow = false;
     GameObject content;
 
     private void Start() {
@@ -12,12 +12,12 @@ public class HintStop : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        //ifShow |= collision.tag.Equals("Player");
-        content.SetActive(true);
+        ifShow |= collision.tag.Equals("Player");
+        content.SetActive(ifShow);
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        //ifShow &= !collision.tag.Equals("Player");
-        content.SetActive(false);
+        ifShow &= !collision.tag.Equals("Player");
+        content.SetActive(ifShow);
     }
 }

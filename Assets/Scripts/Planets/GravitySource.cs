@@ -43,7 +43,7 @@ public class GravitySource : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision) {
         GravityObject go = collision.gameObject.GetComponent<GravityObject>();
-        if (go != null) {
+        if (go != null && go.isActiveAndEnabled) {
             if (this.Equals(go.GetGravitySource())) {
                 go.ResetGravity();
             }
