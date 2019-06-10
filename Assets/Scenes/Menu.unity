@@ -465,7 +465,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1296,6 +1296,7 @@ MonoBehaviour:
   menuBGM: {fileID: 8300000, guid: ee6401996859d1646b1c42979c26fa00, type: 3}
   bgmPlayer: {fileID: 649078462}
   buttonSoundPlayer: {fileID: 580256530}
+  nextBtn: {fileID: 0}
 --- !u!4 &1363728260
 Transform:
   m_ObjectHideFlags: 0
@@ -1450,16 +1451,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 642014789274335195, guid: c5608245051982140a3fe2042033cdf8,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 644957792}
-    - target: {fileID: 642014789274335195, guid: c5608245051982140a3fe2042033cdf8,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetQuality
-      objectReference: {fileID: 0}
     - target: {fileID: 642014789344156670, guid: c5608245051982140a3fe2042033cdf8,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1479,6 +1470,16 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetFullscreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 642014789353414036, guid: c5608245051982140a3fe2042033cdf8,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 644957792}
+    - target: {fileID: 642014789353414036, guid: c5608245051982140a3fe2042033cdf8,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetVolume
       objectReference: {fileID: 0}
     - target: {fileID: 244565178838465657, guid: c5608245051982140a3fe2042033cdf8,
         type: 3}
@@ -1585,6 +1586,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 642014789274335195, guid: c5608245051982140a3fe2042033cdf8,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 644957792}
+    - target: {fileID: 642014789274335195, guid: c5608245051982140a3fe2042033cdf8,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetQuality
+      objectReference: {fileID: 0}
     - target: {fileID: 642014789596911205, guid: c5608245051982140a3fe2042033cdf8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1594,16 +1605,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: HideOption
-      objectReference: {fileID: 0}
-    - target: {fileID: 642014789353414036, guid: c5608245051982140a3fe2042033cdf8,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 644957792}
-    - target: {fileID: 642014789353414036, guid: c5608245051982140a3fe2042033cdf8,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetVolume
       objectReference: {fileID: 0}
     - target: {fileID: 642014789532271401, guid: c5608245051982140a3fe2042033cdf8,
         type: 3}

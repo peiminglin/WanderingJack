@@ -133,10 +133,12 @@ public class ButtonController : MonoBehaviour
         // btn.transform.position = Vector2.Lerp(position2.transform.position, position1.transform.position, percentage);
 
         //}
-        if (currentLevel == 5)
-            nextBtn.SetActive(false);
-        else
-            nextBtn.SetActive(true);
+        if (nextBtn != null){
+            if (currentLevel == 5)
+                nextBtn.SetActive(false);
+            else
+                nextBtn.SetActive(true);
+        }
 
     }
     //public void MoveMenu() {
