@@ -22,13 +22,13 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isWin = false;
-        shipImgObj.SetActive(false);
-        UnlockLevel();
+        Restart();
+        //UnlockLevel();
     }
 
     public void Restart(){
         isWin = false;
+        isOver = false;
         shipImgObj.SetActive(false);
         ResetMission();
     }
@@ -57,8 +57,10 @@ public class UIController : MonoBehaviour
                 shipImgObj.SetActive(true);
             }
 
-            if (player.Health <= 0)
+            if (player.Health <= 0 &&!isWin)
                 isOver = true;
+            else
+                isOver = false;
 
             if (isOver)
             {
@@ -67,13 +69,12 @@ public class UIController : MonoBehaviour
             else
                 gameOverMenuUI.SetActive(false);
 
-            if (player.Health == 0)
-            {
-                isOver = true;
-            }
 
             if (isWin)
+            {
                 winMenuUI.SetActive(true);
+                Time.timeScale = 0;
+            }
             else
                 winMenuUI.SetActive(false);
         }
@@ -92,5 +93,12 @@ public class UIController : MonoBehaviour
         if (player != null)
             player.collected = 0;
         shipImgObj.SetActive(false);
+    }
+
+    public void Reset()
+    {
+       player.Health = player.maxHealth;
+       player.Energy = player.maxEnergy;
+        
     }
 }

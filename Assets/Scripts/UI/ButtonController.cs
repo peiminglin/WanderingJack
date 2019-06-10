@@ -23,6 +23,7 @@ public class ButtonController : MonoBehaviour
     public AudioSource bgmPlayer;
     public AudioSource buttonSoundPlayer;
     int levelUnlocked;
+    public GameObject nextBtn;
 
     private void Start()
     {
@@ -80,15 +81,19 @@ public class ButtonController : MonoBehaviour
         Application.Quit();
     }
     public void LoadNextLevel() {
+        Time.timeScale = 1;
         buttonSoundPlayer.Play();
-        currentLevel++;
+        if (currentLevel < 5)
+            currentLevel++;
+        else
+            currentLevel = 0;
         isLoadNext = true;
         levelText.text = "level - " + currentLevel;
         uIController.Restart();
-        if (currentLevel > levelUnlocked)
-            levelUnlocked = currentLevel;
-        PlayerPrefs.SetInt("unlockedLevel", levelUnlocked);
-        PlayerPrefs.Save();
+        //if (currentLevel > levelUnlocked)
+            //levelUnlocked = currentLevel;
+        //PlayerPrefs.SetInt("unlockedLevel", levelUnlocked);
+        //PlayerPrefs.Save();
         uIController.ResetMission();
         
     }
@@ -107,29 +112,32 @@ public class ButtonController : MonoBehaviour
     {
         //if (shouldLerp == 1)
         //{
-            //lerpTime = 0.5f;
+        //lerpTime = 0.5f;
 
-            //float time = Time.time - startLerping;
+        //float time = Time.time - startLerping;
 
-            //float percentage = time / lerpTime;
+        //float percentage = time / lerpTime;
 
-            //btn.transform.position = Vector2.Lerp(position1.transform.position, position2.transform.position, percentage);
+        //btn.transform.position = Vector2.Lerp(position1.transform.position, position2.transform.position, percentage);
 
 
         //}
-       // else if(shouldLerp ==0)
+        // else if(shouldLerp ==0)
         //{
-           // lerpTime = 0.5f;
+        // lerpTime = 0.5f;
 
-            //float time = Time.time - startLerping;
+        //float time = Time.time - startLerping;
 
-           // float percentage = time / lerpTime;
+        // float percentage = time / lerpTime;
 
-           // btn.transform.position = Vector2.Lerp(position2.transform.position, position1.transform.position, percentage);
+        // btn.transform.position = Vector2.Lerp(position2.transform.position, position1.transform.position, percentage);
 
         //}
+        if (currentLevel == 5)
+            nextBtn.SetActive(false);
+        else
+            nextBtn.SetActive(true);
 
-        
     }
     //public void MoveMenu() {
       //  startLerping = Time.time;

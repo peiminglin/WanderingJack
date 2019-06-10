@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     //public static Player player;
     public ButtonController buttonController;
     public GameObject levelAnnouncer;
+    public UIController uI;
 
     void Start(){
         Time.timeScale = 0;
